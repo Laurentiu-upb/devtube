@@ -8,9 +8,7 @@ import projects from './data/projects';
 import ProjectPage from './pages/ProjectPage';
 import Sidebar from './components/Sidebar';
 
-function Home({ onSearch }) {
-  const [query, setQuery] = useState('');
-  const [selectedTag, setSelectedTag] = useState('');
+function Home({ query, selectedTag, setQuery, setSelectedTag }) {
   const allTags = [...new Set(projects.flatMap(p => p.tags))];
 
   const filteredProjects = projects.filter((project) => {
@@ -77,18 +75,35 @@ function Home({ onSearch }) {
 }
 
 function App() {
+  const [query, setQuery] = useState('');
+  const [selectedTag, setSelectedTag] = useState('');
   const [sidebarExpanded, setSidebarExpanded] = useState(true);
 
   return (
 <div style={{ display: "flex" }}>
   <Sidebar expanded={sidebarExpanded} />
-  <div style={{ marginLeft: sidebarExpanded ? 180 : 60, flex: 1, paddingTop: 60 }}>
+  <div style={{ marginLeft: sidebarExpanded ? 200 : 72, paddingTop: 56 }}>
     <Navbar
-  onSearch={() => {}}  // placeholder if needed
+  onSearch={(q) => {
+    setQuery(q);
+    setSelectedTag('');
+  }}
   onToggleSidebar={() => setSidebarExpanded((prev) => !prev)}
 />
+
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route
+  path="/"
+  element={
+    <Home
+      query={query}
+      selectedTag={selectedTag}
+      setQuery={setQuery}
+      setSelectedTag={setSelectedTag}
+    />
+  }
+/>
+
       <Route path="/project/:slug" element={<ProjectPage />} />
       {/* other routes */}
     </Routes>

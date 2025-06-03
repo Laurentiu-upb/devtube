@@ -3,55 +3,94 @@
 import React from "react";
 
 function Navbar({ onSearch, onToggleSidebar }) {
-  const handleChange = (e) => {
-    onSearch(e.target.value);
-  };
-
   return (
     <div style={{
       position: 'fixed',
       top: 0,
       left: 0,
       width: '100%',
-      height: 60,
-      backgroundColor: '#202020',
+      height: 56,
+      backgroundColor: '#0f0f0f',
       color: '#fff',
-      fontFamily: 'Arial, sans-serif',
       display: 'flex',
       alignItems: 'center',
+      padding: '0 16px',
       justifyContent: 'space-between',
-      padding: '0 24px',
-      zIndex: 1000,
-      boxShadow: '0 1px 4px rgba(0,0,0,0.2)'
+      boxShadow: '0 1px 3px rgba(0,0,0,0.4)',
+      zIndex: 1000
     }}>
-
-      <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+      
+      {/* LEFT: ☰ + logo */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
         <button
           onClick={onToggleSidebar}
           style={{
-            background: "none",
-            border: "none",
-            fontSize: "1.5rem",
-            color: "#fff",
-            cursor: "pointer"
+            background: 'none',
+            border: 'none',
+            fontSize: '1.4rem',
+            color: '#fff',
+            cursor: 'pointer'
           }}
         >
           ☰
         </button>
-        <div style={{ fontWeight: 'bold', fontSize: '1.5rem', color: '#ff4c4c' }}>DevTube</div>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+          <div style={{
+            width: 24,
+            height: 18,
+            backgroundColor: '#ff0000',
+            borderRadius: 4,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontWeight: 'bold',
+            fontSize: 14
+          }}>
+            ▶
+          </div>
+          <span style={{ fontWeight: 'bold', fontSize: '1.2rem' }}>DevTube</span>
+        </div>
       </div>
 
-      <input
-        type="text"
-        placeholder="Search projects..."
-        onChange={handleChange}
-        style={{
-          padding: '6px 10px',
-          borderRadius: 4,
-          border: 'none',
-          width: 200,
-        }}
-      />
+      {/* CENTER: search bar */}
+      <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+        <div style={{
+          display: 'flex',
+          backgroundColor: '#121212',
+          border: '1px solid #333',
+          borderRadius: 20,
+          overflow: 'hidden',
+          width: 400,
+          height: 36,
+        }}>
+          <input
+            type="text"
+            placeholder="Search"
+            onChange={(e) => onSearch(e.target.value)}
+            style={{
+              flex: 1,
+              backgroundColor: 'transparent',
+              border: 'none',
+              color: '#fff',
+              padding: '0 12px',
+              outline: 'none'
+            }}
+          />
+          <div style={{
+            width: 48,
+            backgroundColor: '#222',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderLeft: '1px solid #333',
+            cursor: 'pointer'
+          }}>
+            🔍
+          </div>
+        </div>
+      </div>
+
     </div>
   );
 }
