@@ -54,7 +54,7 @@ function Sidebar({ expanded }) {
       {navItem("Categories", "🗂", "/categories")}
       {navItem("Contact", "📬", "/contact")}
       <hr style={{ borderColor: "#444", width: "100%" }} />
-      {navItem("My YouTube Page", "▶️", "https://www.youtube.com/@xlaurentiu6587", true)}
+      {navItem("My Social Media", "📱", "/socials")}
       {navItem("My LinkedIn Page", "🔗", "https://linkedin.com/in/YOUR-LINK", true)}
       {navItem("My GitHub Page", "🧑‍💻", "https://github.com/Laurentiu-upb", true)}
       {navItem("My CV", "📄", "/cv")}

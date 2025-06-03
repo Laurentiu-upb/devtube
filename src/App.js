@@ -7,6 +7,7 @@ import VideoCard from './components/VideoCard';
 import projects from './data/projects';
 import ProjectPage from './pages/ProjectPage';
 import Sidebar from './components/Sidebar';
+import SocialMediaPage from "./pages/SocialMediaPage";
 
 function Home({ query, selectedTag, setQuery, setSelectedTag }) {
   const allTags = [...new Set(projects.flatMap(p => p.tags))];
@@ -58,13 +59,16 @@ function Home({ query, selectedTag, setQuery, setSelectedTag }) {
 
       {/* Project cards */}
       <div style={{ padding: 20 }}>
-        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-          {filteredProjects.map((project, index) => (
-            <div
-              key={index}
-              style={{ cursor: 'pointer' }}
-              onClick={() => window.location.href = `/project/${project.slug}`}
-            >
+      <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+        gap: '16px 24px',
+        padding: '20px 32px'
+        }}
+      >
+        {filteredProjects.map((project, index) => (
+            <div key={index}>
               <VideoCard project={project} />
             </div>
           ))}
@@ -82,7 +86,16 @@ function App() {
   return (
 <div style={{ display: "flex" }}>
   <Sidebar expanded={sidebarExpanded} />
-  <div style={{ marginLeft: sidebarExpanded ? 200 : 72, paddingTop: 56 }}>
+  <div
+    style={{
+      marginLeft: sidebarExpanded ? 200 : 72,
+      paddingTop: 56,
+      paddingRight: 24,
+      paddingLeft: 24,
+      width: `calc(100% - ${sidebarExpanded ? 200 : 72}px)`
+    }}
+  >
+
     <Navbar
   onSearch={(q) => {
     setQuery(q);
@@ -105,6 +118,7 @@ function App() {
 />
 
       <Route path="/project/:slug" element={<ProjectPage />} />
+      <Route path="/socials" element={<SocialMediaPage />} />
       {/* other routes */}
     </Routes>
   </div>

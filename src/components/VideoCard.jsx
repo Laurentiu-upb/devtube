@@ -3,42 +3,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const cardStyle = {
-  width: 320,
-  margin: '10px',
-  fontFamily: 'Arial, sans-serif',
-  cursor: 'pointer',
-  textDecoration: 'none',
-  color: 'inherit',
-};
-
-const imageStyle = {
-  width: '100%',
-  height: 180,
-  objectFit: 'cover',
-  borderRadius: '8px',
-  marginBottom: '8px',
-  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)'
-};
-
-const titleStyle = {
-  fontSize: '1rem',
-  fontWeight: 'bold',
-  marginBottom: '4px',
-};
-
-const descStyle = {
-  fontSize: '0.85rem',
-  marginBottom: '6px',
-  color: '#333'
-};
-
-const stackStyle = {
-  fontSize: '0.75rem',
-  fontStyle: 'italic',
-  color: '#666'
-};
-
 function VideoCard({ project }) {
   const navigate = useNavigate();
 
@@ -46,10 +10,20 @@ function VideoCard({ project }) {
     <div
       onClick={() => navigate(`/project/${project.slug}`, { replace: true })}
       style={{
-        width: 320,
-        margin: 10,
-        cursor: 'pointer',
-        fontFamily: 'Arial, sans-serif'
+        borderRadius: 8,
+        overflow: "hidden",
+        transition: "transform 0.2s ease, box-shadow 0.2s ease",
+        cursor: "pointer",
+        backgroundColor: "#fff",
+        border: "1px solid #ddd"
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = "scale(1.03)";
+        e.currentTarget.style.boxShadow = "0 6px 20px rgba(0,0,0,0.2)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = "scale(1)";
+        e.currentTarget.style.boxShadow = "none";
       }}
     >
       <img
@@ -59,12 +33,32 @@ function VideoCard({ project }) {
           width: "100%",
           height: 180,
           objectFit: "cover",
-          borderRadius: 8,
-          marginBottom: 8
+          display: "block"
         }}
       />
-      <h3>{project.title}</h3>
-      <p style={{ fontSize: "0.85rem" }}>{project.description}</p>
+
+      {/* footer */}
+      <div style={{
+        backgroundColor: "#f9f9f9",
+        padding: "10px 12px",
+        borderTop: "1px solid #e0e0e0"
+      }}>
+        <div style={{
+          fontWeight: "bold",
+          fontSize: "0.95rem",
+          color: "#111",
+          marginBottom: 4,
+        }}>
+          {project.title}
+        </div>
+        <div style={{
+          fontSize: "0.8rem",
+          color: "#666",
+          textTransform: "capitalize"
+        }}>
+          {project.type || "web app"}
+        </div>
+      </div>
     </div>
   );
 }
