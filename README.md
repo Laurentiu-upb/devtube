@@ -1,70 +1,98 @@
-# Getting Started with Create React App
+🎮 DevTube
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A sleek, dynamic developer portfolio styled like YouTube.
 
-## Available Scripts
+You can browse your projects like videos, filter by tech stack, search instantly, and open full-screen project pages just like watching a video on YouTube!
 
-In the project directory, you can run:
+🚀 Features
 
-### `npm start`
+🎥 Project thumbnails that look like YouTube video cards
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+🔍 Live search by title, description, or stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+🌁 Tag filters for tech stacks (e.g. #Python, #React)
 
-### `npm test`
+✨ Slug-based project pages (e.g. /project/smartlauncher)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+🖼️ Full-size screenshots / thumbnails in public/assets/thumbnails
 
-### `npm run build`
+📈 Demo
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+(Coming soon — GitHub Pages / Vercel deployment planned)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+🛠️ Tech Stack
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+React (Create React App)
 
-### `npm run eject`
+React Router DOM (dynamic routing)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+JavaScript + JSX
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+HTML/CSS for layout and inline styles
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+📂 Folder Structure
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+src/
+├── components/
+│   ├── Navbar.jsx         // Top search bar
+│   ├── VideoCard.jsx      // YouTube-style project cards
+│   └── ProjectModal.jsx   // (optional) modal fallback
+├── pages/
+│   └── ProjectPage.jsx    // Dedicated "watch" page for each project
+├── data/
+│   └── projects.js        // Project metadata with slugs
+├── App.js                 // Routing and homepage logic
+└── index.js               // React DOM + Router
 
-## Learn More
+Assets live in:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+public/assets/thumbnails/
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+⚡ Quick Start
 
-### Code Splitting
+git clone https://github.com/Laurentiu-upb/devtube.git
+cd devtube
+npm install
+npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+🔹 How Routing Works
 
-### Analyzing the Bundle Size
+Project pages use slugs for clean URLs:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+/project/smartlauncher
 
-### Making a Progressive Web App
+/project/varroaclassifier
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Each project in projects.js includes a slug field like:
 
-### Advanced Configuration
+slug: "smartlauncher"
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+🙌 Contributions & Ideas
 
-### Deployment
+Feel free to fork and expand:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Add dark mode
 
-### `npm run build` fails to minify
+Deploy live with Vercel
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Add animations
+
+Fetch projects dynamically
+
+PRs welcome!
+
+📝 License
+
+MIT — free to modify and use in your own portfolio.
+
+👏 Credits
+
+Inspired by:
+
+YouTube UI
+
+Dev portfolios with personality
+
+Real project navigation
+
+Built with passion by Laurentiu ❤️
