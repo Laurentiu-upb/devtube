@@ -44,7 +44,7 @@ function VideoCard({ project }) {
 
   return (
     <div
-      onClick={() => navigate(`/project/${project.slug}`)}
+      onClick={() => navigate(`/project/${project.slug}`, { replace: true })}
       style={{
         width: 320,
         margin: 10,

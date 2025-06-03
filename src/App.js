@@ -1,17 +1,16 @@
 // App.js
 
 import React, { useState } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import VideoCard from './components/VideoCard';
 import projects from './data/projects';
 import ProjectPage from './pages/ProjectPage';
+import Sidebar from './components/Sidebar';
 
-function Home() {
+function Home({ onSearch }) {
   const [query, setQuery] = useState('');
   const [selectedTag, setSelectedTag] = useState('');
-  const navigate = useNavigate();
-
   const allTags = [...new Set(projects.flatMap(p => p.tags))];
 
   const filteredProjects = projects.filter((project) => {
@@ -25,10 +24,6 @@ function Home() {
 
   return (
     <>
-      <Navbar onSearch={(q) => {
-        setQuery(q);
-        setSelectedTag('');
-      }} />
 
       {/* Tag buttons */}
       <div style={{ padding: '10px 20px' }}>
@@ -67,10 +62,12 @@ function Home() {
       <div style={{ padding: 20 }}>
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
           {filteredProjects.map((project, index) => (
-            <div key={index} style={{ cursor: 'pointer' }}>
-              <a href={`#${project.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                <VideoCard project={project} />
-              </a>
+            <div
+              key={index}
+              style={{ cursor: 'pointer' }}
+              onClick={() => window.location.href = `/project/${project.slug}`}
+            >
+              <VideoCard project={project} />
             </div>
           ))}
         </div>
@@ -80,11 +77,24 @@ function Home() {
 }
 
 function App() {
+  const [sidebarExpanded, setSidebarExpanded] = useState(true);
+
   return (
+<div style={{ display: "flex" }}>
+  <Sidebar expanded={sidebarExpanded} />
+  <div style={{ marginLeft: sidebarExpanded ? 180 : 60, flex: 1, paddingTop: 60 }}>
+    <Navbar
+  onSearch={() => {}}  // placeholder if needed
+  onToggleSidebar={() => setSidebarExpanded((prev) => !prev)}
+/>
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/project/:slug" element={<ProjectPage />} />
+      {/* other routes */}
     </Routes>
+  </div>
+</div>
+
   );
 }
 
