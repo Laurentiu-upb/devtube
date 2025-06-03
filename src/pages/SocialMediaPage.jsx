@@ -33,6 +33,26 @@ function SocialMediaPage() {
       color: "#FE88FA"
     },
     {
+      name: "Threads",
+      icon: "/assets/logos/threads.png", // download + save logo here
+      url: "https://www.threads.com/@laurentiu.xlr",
+      handle: "@laurentiu.xlr",
+      description: "Casual thoughts & behind the scenes",
+      status: "Active",
+      latest: "Posted last week",
+      color: "#000"
+    },
+    {
+      name: "Facebook",
+      icon: "/assets/logos/facebook.png",
+      url: "https://www.facebook.com/xlaur3440/",
+      handle: "xlaur3440",
+      description: "Friends & dev updates",
+      status: "Active",
+      latest: "Post shared last week",
+      color: "#1877F2"
+    },
+    {
       name: "TikTok",
       icon: "/assets/logos/tiktok.png",
       url: "https://www.tiktok.com/@laurentiu.xlr",
@@ -62,6 +82,17 @@ function SocialMediaPage() {
       latest: "Updated 1 repo this month",
       color: "#333"
     },
+    {
+      name: "Reddit",
+      icon: "/assets/logos/reddit.png",
+      url: "https://www.reddit.com/user/laurentiu_xlr/",
+      handle: "u/laurentiu_xlr",
+      description: "Comments, tech, and communities",
+      status: "Active",
+      latest: "Commented yesterday",
+      color: "#FF4500"
+    },
+
     {
       name: "LinkedIn",
       icon: "/assets/logos/linkedin.png",
