@@ -1,18 +1,20 @@
 export const projects = [
   {
+    slug: "smartlauncher",
     title: "Smart Launcher",
-    thumbnail: "https://via.placeholder.com/320x180?text=Launcher",
+    thumbnail: "/assets/thumbnails/launcher.jpg",
     description: "A customizable Windows launcher for apps, games, and sites.",
     stack: ["Python", "PyQt", "JSON"],
     demo: "#",
     github: "#"
   },
   {
-    title: "Varroa Mite Classifier",
-    thumbnail: "https://via.placeholder.com/320x180?text=Bee+AI",
-    description: "Image classification system for early Varroa mite detection.",
-    stack: ["TensorFlow", "Keras", "MobileNet"],
-    demo: "#",
-    github: "#"
+    slug: "devtube",
+    title: "DevTube",
+    thumbnail: "/assets/thumbnails/varroa.jpg",
+    description: "A YouTube like portofolio.",
+    stack: ["Portofolio", "noob", "Web"],
+    demo: "https://github.com/Laurentiu-upb/devtube.git",
+    github: "https://github.com/Laurentiu-upb/devtube.git"
   }
 ];
