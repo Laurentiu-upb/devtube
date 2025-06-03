@@ -1,9 +1,15 @@
-import React from 'react';
+// VideoCard.jsx
+
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const cardStyle = {
   width: 320,
   margin: '10px',
   fontFamily: 'Arial, sans-serif',
+  cursor: 'pointer',
+  textDecoration: 'none',
+  color: 'inherit',
 };
 
 const imageStyle = {
@@ -33,22 +39,32 @@ const stackStyle = {
   color: '#666'
 };
 
-const linkStyle = {
-  fontSize: '0.8rem',
-  marginTop: '4px',
-};
-
 function VideoCard({ project }) {
+  const navigate = useNavigate();
+
   return (
-    <div style={cardStyle}>
-      <img src={project.thumbnail} alt={project.title} style={imageStyle} />
-      <div style={titleStyle}>{project.title}</div>
-      <div style={descStyle}>{project.description}</div>
-      <div style={stackStyle}><strong>Stack:</strong> {project.stack.join(', ')}</div>
-      <div style={linkStyle}>
-        <a href={project.demo} target="_blank" rel="noreferrer">Live</a> |{' '}
-        <a href={project.github} target="_blank" rel="noreferrer">GitHub</a>
-      </div>
+    <div
+      onClick={() => navigate(`/project/${project.slug}`)}
+      style={{
+        width: 320,
+        margin: 10,
+        cursor: 'pointer',
+        fontFamily: 'Arial, sans-serif'
+      }}
+    >
+      <img
+        src={project.thumbnail}
+        alt={project.title}
+        style={{
+          width: "100%",
+          height: 180,
+          objectFit: "cover",
+          borderRadius: 8,
+          marginBottom: 8
+        }}
+      />
+      <h3>{project.title}</h3>
+      <p style={{ fontSize: "0.85rem" }}>{project.description}</p>
     </div>
   );
 }

@@ -1,8 +1,10 @@
+// App.js
+
 import React, { useState } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import VideoCard from './components/VideoCard';
-import { projects } from './data/projects';
+import projects from './data/projects';
 import ProjectPage from './pages/ProjectPage';
 
 function Home() {
@@ -10,14 +12,14 @@ function Home() {
   const [selectedTag, setSelectedTag] = useState('');
   const navigate = useNavigate();
 
-  const allTags = [...new Set(projects.flatMap(p => p.stack))];
+  const allTags = [...new Set(projects.flatMap(p => p.tags))];
 
   const filteredProjects = projects.filter((project) => {
     const q = query.toLowerCase();
     return (
       project.title.toLowerCase().includes(q) ||
       project.description.toLowerCase().includes(q) ||
-      project.stack.join(',').toLowerCase().includes(q)
+      project.tags.join(',').toLowerCase().includes(q)
     );
   });
 
@@ -65,12 +67,10 @@ function Home() {
       <div style={{ padding: 20 }}>
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
           {filteredProjects.map((project, index) => (
-            <div
-              key={index}
-              onClick={() => navigate(`/project/${project.slug}`)}
-              style={{ cursor: 'pointer' }}
-            >
-              <VideoCard project={project} />
+            <div key={index} style={{ cursor: 'pointer' }}>
+              <a href={`#${project.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                <VideoCard project={project} />
+              </a>
             </div>
           ))}
         </div>
@@ -83,7 +83,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/project/:id" element={<ProjectPage />} />
+      <Route path="/project/:slug" element={<ProjectPage />} />
     </Routes>
   );
 }

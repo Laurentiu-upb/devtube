@@ -1,20 +1,30 @@
-export const projects = [
+// projects.js
+
+const projects = [
   {
-    slug: "smartlauncher",
+    id: 0,
     title: "Smart Launcher",
+    description: "A modern Windows launcher with themes, icons, weather, and more.",
+    slug: "smartlauncher",
+    tags: ["React", "Electron", "Python"],
     thumbnail: "/assets/thumbnails/launcher.jpg",
-    description: "A customizable Windows launcher for apps, games, and sites.",
-    stack: ["Python", "PyQt", "JSON"],
-    demo: "#",
-    github: "#"
   },
   {
-    slug: "devtube",
+    id: 1,
     title: "DevTube",
+    description: "A portfolio styled like YouTube with filterable projects.",
+    slug: "devtube",
+    tags: ["React", "CSS", "Portfolio"],
     thumbnail: "/assets/thumbnails/varroa.jpg",
-    description: "A YouTube like portofolio.",
-    stack: ["Portofolio", "noob", "Web"],
-    demo: "https://github.com/Laurentiu-upb/devtube.git",
-    github: "https://github.com/Laurentiu-upb/devtube.git"
-  }
+  },
+  {
+    id: 2,
+    title: "Snake Web Game",
+    description: "Classic snake game playable in the browser.",
+    slug: "snakeweb",
+    tags: ["JavaScript", "Game", "Web"],
+    thumbnail: "/assets/thumbnails/launcher.jpg",
+  },
 ];
+
+export default projects;
