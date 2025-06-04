@@ -9,6 +9,17 @@ const emojis = ["🍎", "🍇", "🍒", "🍓", "🥝", "🍊", "🍉"];
 
 document.getElementById("startBtn").addEventListener("click", startGame);
 
+function getSpeedForScore(score) {
+  if (score < 5) return { delay: 250, multiplier: "0.25x" };
+  if (score < 10) return { delay: 200, multiplier: "0.5x" };
+  if (score < 15) return { delay: 150, multiplier: "0.75x" };
+  if (score < 20) return { delay: 120, multiplier: "1.0x" };
+  if (score < 25) return { delay: 90, multiplier: "1.5x" };
+  if (score < 30) return { delay: 60, multiplier: "2.0x" };
+  return { delay: 40, multiplier: "3.0x" };
+}
+
+
 function startGame() {
   snake = [{ x: 9 * box, y: 9 * box }];
   direction = "RIGHT";
@@ -22,7 +33,10 @@ function startGame() {
   document.getElementById("gameOverOverlay").classList.add("hidden");
   isGameOver = false;
   clearInterval(interval);
-  interval = setInterval(draw, 120);
+  const speedInfo = getSpeedForScore(score);
+interval = setInterval(draw, speedInfo.delay);
+document.getElementById("speed").textContent = speedInfo.multiplier;
+
 }
 
 function draw() {
@@ -63,6 +77,11 @@ function draw() {
       y: Math.floor(Math.random() * 19) * box,
       emoji: emojis[Math.floor(Math.random() * emojis.length)]
     };
+    clearInterval(interval);
+    const speedInfo = getSpeedForScore(score);
+interval = setInterval(draw, speedInfo.delay);
+document.getElementById("speed").textContent = speedInfo.multiplier;
+
   } else {
     snake.pop();
   }
@@ -85,7 +104,7 @@ document.addEventListener("keydown", (e) => {
   if ((key === "s" || key === "arrowdown") && direction !== "UP") direction = "DOWN";
 });
 
-// Touch controls (optional)
+// Touch controls
 let touchStartX, touchStartY;
 canvas.addEventListener("touchstart", (e) => {
   const t = e.touches[0];
