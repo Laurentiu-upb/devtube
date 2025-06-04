@@ -8,6 +8,8 @@ import projects from './data/projects';
 import ProjectPage from './pages/ProjectPage';
 import Sidebar from './components/Sidebar';
 import SocialMediaPage from "./pages/SocialMediaPage";
+import ProfilePage from "./pages/ProfilePage";
+
 
 function Home({ query, selectedTag, setQuery, setSelectedTag }) {
   const allTags = [...new Set(projects.flatMap(p => p.tags))];
@@ -119,6 +121,7 @@ function App() {
 
       <Route path="/project/:slug" element={<ProjectPage />} />
       <Route path="/socials" element={<SocialMediaPage />} />
+      <Route path="/profile" element={<ProfilePage />} />
       {/* other routes */}
     </Routes>
   </div>

@@ -34,7 +34,7 @@ function SocialMediaPage() {
     },
     {
       name: "Threads",
-      icon: "/assets/logos/threads.png", // download + save logo here
+      icon: "/assets/logos/threads.png",
       url: "https://www.threads.com/@laurentiu.xlr",
       handle: "@laurentiu.xlr",
       description: "Casual thoughts & behind the scenes",
@@ -92,7 +92,6 @@ function SocialMediaPage() {
       latest: "Commented yesterday",
       color: "#FF4500"
     },
-
     {
       name: "LinkedIn",
       icon: "/assets/logos/linkedin.png",
@@ -111,7 +110,11 @@ function SocialMediaPage() {
   };
 
   return (
-    <div style={{ padding: "40px 60px" }}>
+    <div style={{
+      margin: "40px auto",
+      padding: "0 24px",
+      maxWidth: "1200px"
+    }}>
       {/* Avatar + Header */}
       <div style={{
         display: "flex",
@@ -132,27 +135,25 @@ function SocialMediaPage() {
           }}
         />
         <h1 style={{ margin: 0, fontSize: "1.8rem" }}>Laurentiu’s Social Hub</h1>
-<div style={{
-  marginTop: 20,
-  maxWidth: 720,
-  textAlign: "center",
-  background: "linear-gradient(145deg, #f2f2f2, #cccccc)",
-  borderRadius: "14px",
-  padding: "24px 32px",
-  boxShadow: "0 4px 12px rgba(0,0,0,0.05)",
-  fontSize: "1rem",
-  lineHeight: 1.6,
-  color: "#333"
-}}>
-  Hey, I’m <strong>Laurentiu</strong> 👋 — a developer and creative explorer.<br />
-  I build things with <span style={{ color: "#4e91f9", fontWeight: 600 }}>code</span>,
-  tell stories through <span style={{ color: "#e1306c", fontWeight: 600 }}>photography</span>,
-  and love sharing across platforms.<br />
-  You’ll find me working on tools, experiments, and a bit of everything in between 🚀
-</div>
 
-
-
+        <div style={{
+          marginTop: 20,
+          maxWidth: 720,
+          textAlign: "center",
+          background: "linear-gradient(145deg, #f2f2f2, #cccccc)",
+          borderRadius: "14px",
+          padding: "24px 32px",
+          boxShadow: "0 4px 12px rgba(0,0,0,0.05)",
+          fontSize: "1rem",
+          lineHeight: 1.6,
+          color: "#333"
+        }}>
+          Hey, I’m <strong>Laurentiu</strong> 👋 — a developer and creative explorer.<br />
+          I build things with <span style={{ color: "#4e91f9", fontWeight: 600 }}>code</span>,
+          tell stories through <span style={{ color: "#e1306c", fontWeight: 600 }}>photography</span>,
+          and love sharing across platforms.<br />
+          You’ll find me working on tools, experiments, and a bit of everything in between 🚀
+        </div>
       </div>
 
       {/* Social Cards */}
