@@ -4,9 +4,38 @@ function SnakeWebPage() {
   return (
     <div style={{ padding: 40 }}>
       <h1>Smart Launcher</h1>
-      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "100%", maxWidth: 800 }} />
-      <p>This is a Windows launcher with dark/light themes, weather, delay timers, and Steam integration.</p>
-      <a href="https://github.com/yourname/launcher">View GitHub Repo</a>
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <img src="/assets/thumbnails/launcher.jpg" style={{ width: "10%", maxWidth: 800 }} />
+      <p>GAME TIME, but in browser?? WOW</p>
+      <a href="/games/snake/index.html">Let's play</a>
     </div>
   );
 }

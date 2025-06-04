@@ -55,8 +55,8 @@ function Sidebar({ expanded }) {
       {navItem("Contact", "📬", "/contact")}
       <hr style={{ borderColor: "#444", width: "100%" }} />
       {navItem("My Social Media", "📱", "/socials")}
-      {navItem("My LinkedIn Page", "🔗", "https://linkedin.com/in/YOUR-LINK", true)}
-      {navItem("My GitHub Page", "🧑‍💻", "https://github.com/Laurentiu-upb", true)}
+      {navItem("My Web Apps", "🧩", "/web-apps")}
+      {navItem("My Web Games", "🎮", "/web-games")}
       {navItem("My CV", "📄", "/cv")}
     </div>
   );

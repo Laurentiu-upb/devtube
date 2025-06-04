@@ -10,6 +10,8 @@ import Sidebar from './components/Sidebar';
 import SocialMediaPage from "./pages/SocialMediaPage";
 import ProfilePage from "./pages/ProfilePage";
 import ContactPage from "./pages/ContactPage";
+import WebGames from './pages/WebGames';
+import WebApps from './pages/WebApps';
 
 
 function Home({ query, selectedTag, setQuery, setSelectedTag }) {
@@ -124,6 +126,8 @@ function App() {
       <Route path="/socials" element={<SocialMediaPage />} />
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/contact" element={<ContactPage />} />
+      <Route path="/web-games" element={<WebGames />} />
+      <Route path="/web-apps" element={<WebApps />} />
       {/* other routes */}
     </Routes>
   </div>
