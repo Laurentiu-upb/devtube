@@ -9,6 +9,7 @@ import ProjectPage from './pages/ProjectPage';
 import Sidebar from './components/Sidebar';
 import SocialMediaPage from "./pages/SocialMediaPage";
 import ProfilePage from "./pages/ProfilePage";
+import ContactPage from "./pages/ContactPage";
 
 
 function Home({ query, selectedTag, setQuery, setSelectedTag }) {
@@ -122,6 +123,7 @@ function App() {
       <Route path="/project/:slug" element={<ProjectPage />} />
       <Route path="/socials" element={<SocialMediaPage />} />
       <Route path="/profile" element={<ProfilePage />} />
+      <Route path="/contact" element={<ContactPage />} />
       {/* other routes */}
     </Routes>
   </div>
