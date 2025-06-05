@@ -12,7 +12,7 @@ import ProfilePage from "./pages/ProfilePage";
 import ContactPage from "./pages/ContactPage";
 import WebGames from './pages/WebGames';
 import WebApps from './pages/WebApps';
-
+import CvPage from './pages/CvPage';
 
 function Home({ query, selectedTag, setQuery, setSelectedTag }) {
   const allTags = [...new Set(projects.flatMap(p => p.tags))];
@@ -128,6 +128,7 @@ function App() {
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/web-games" element={<WebGames />} />
       <Route path="/web-apps" element={<WebApps />} />
+      <Route path="/cv" element={<CvPage />} />
       {/* other routes */}
     </Routes>
   </div>
