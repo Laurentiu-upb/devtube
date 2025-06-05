@@ -35,6 +35,25 @@ function Navbar({ onSearch, onToggleSidebar }) {
           ☰
         </button>
 
+<button
+  onClick={() => {
+    localStorage.removeItem("devtube_access");
+    window.location.href = "/";
+  }}
+  style={{
+    marginLeft: "auto",
+    background: "#e74c3c",
+    color: "white",
+    padding: "6px 12px",
+    border: "none",
+    borderRadius: "6px",
+    cursor: "pointer"
+  }}
+>
+  Logout
+</button>
+
+
         <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
           <div style={{
             width: 24,
@@ -90,7 +109,6 @@ function Navbar({ onSearch, onToggleSidebar }) {
           </div>
         </div>
       </div>
-
     </div>
   );
 }
