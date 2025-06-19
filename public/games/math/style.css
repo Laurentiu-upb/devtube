@@ -1,0 +1,115 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f4f6f8;
+  color: #222;
+  text-align: center;
+}
+
+.container {
+  padding: 40px 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.settings select {
+  padding: 8px 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin: 0 10px;
+}
+
+.settings button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  margin-top: 16px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.game {
+  margin-top: 20px;
+}
+
+.problem {
+  font-size: 2rem;
+  margin: 20px 0;
+}
+
+input[type="number"] {
+  padding: 10px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 60%;
+  margin-bottom: 12px;
+}
+
+.feedback {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  height: 24px;
+}
+
+.feedback.correct {
+  color: green;
+}
+
+.feedback.wrong {
+  color: red;
+}
+
+.info {
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  color: white;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  z-index: 999;
+}
+
+.overlay.show {
+  display: flex;
+}
+
+.overlay button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-top: 16px;
+  cursor: pointer;
+}
+
+.back-button {
+  display: inline-block;
+  margin-bottom: 16px;
+  text-decoration: none;
+  background: #1a73e8;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 6px;
+}
