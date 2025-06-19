@@ -14,7 +14,7 @@ import ContactPage from "./pages/ContactPage";
 import WebGames from './pages/WebGames';
 import WebApps from './pages/WebApps';
 import CvPage from './pages/CvPage';
-import InDevelopmentPage from "./pages/InDevelopmentPage";
+//import InDevelopmentPage from "./pages/InDevelopmentPage";
 
 function Home({ query, selectedTag, setQuery, setSelectedTag }) {
   const allTags = [...new Set(projects.flatMap(p => p.tags))];
@@ -111,32 +111,27 @@ function App() {
   onToggleSidebar={() => setSidebarExpanded((prev) => !prev)}
 />
 
-    <Routes>
-  {localStorage.getItem("access_granted") === "true" ? (
-    <>
-      <Route
-        path="/"
-        element={
-          <Home
-            query={query}
-            selectedTag={selectedTag}
-            setQuery={setQuery}
-            setSelectedTag={setSelectedTag}
-          />
-        }
+<Routes>
+  <Route
+    path="/"
+    element={
+      <Home
+        query={query}
+        selectedTag={selectedTag}
+        setQuery={setQuery}
+        setSelectedTag={setSelectedTag}
       />
-      <Route path="/project/:slug" element={<ProjectPage />} />
-      <Route path="/socials" element={<SocialMediaPage />} />
-      <Route path="/profile" element={<ProfilePage />} />
-      <Route path="/contact" element={<ContactPage />} />
-      <Route path="/web-games" element={<WebGames />} />
-      <Route path="/web-apps" element={<WebApps />} />
-      <Route path="/cv" element={<CvPage />} />
-    </>
-  ) : (
-    <Route path="*" element={<InDevelopmentPage />} />
-  )}
+    }
+  />
+  <Route path="/project/:slug" element={<ProjectPage />} />
+  <Route path="/socials" element={<SocialMediaPage />} />
+  <Route path="/profile" element={<ProfilePage />} />
+  <Route path="/contact" element={<ContactPage />} />
+  <Route path="/web-games" element={<WebGames />} />
+  <Route path="/web-apps" element={<WebApps />} />
+  <Route path="/cv" element={<CvPage />} />
 </Routes>
+
 
   </div>
 </div>

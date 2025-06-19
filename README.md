@@ -1,109 +1,72 @@
-# 🎮 DevTube
+# 🚧 DevTube – Personal Portfolio Hub
 
-A sleek, dynamic developer portfolio styled like **YouTube**.
-
-You can browse your projects like videos, filter by tech stack, search instantly, and open full-screen project pages just like watching a video on YouTube!
+Welcome to **DevTube**, a YouTube-inspired personal portfolio web app designed to showcase projects, social presence, games, and more.
 
 ---
 
-## 🚀 Features
+## ✅ Implemented Features
 
-- 🎥 **Project thumbnails** that look like YouTube video cards
-- 🔍 **Live search** by title, description, or stack
-- 🌁 **Tag filters** for tech stacks (e.g. `#Python`, `#React`)
-- ✨ **Slug-based project pages** (e.g. `/project/smartlauncher`)
-- 🖼️ Full-size screenshots / thumbnails in `public/assets/thumbnails`
+### 🔵 General Structure
+- Sidebar with navigation (compact/full view)
+- Responsive YouTube-like `ProfilePage`
+- `SocialMediaPage` with vertical interactive cards (copy handle, status, last activity)
+- `ContactPage` with:
+  - Form validation for email/message (required), PDF only file upload
+  - Simulated submission (logs to console)
+  - Personal info + quick DM links (WhatsApp, Instagram, Messenger)
+- `WebGames` page with:
+  - Snake game: animated food, score, difficulty scaling
+  - WASD, touch support, overlays for Game Over + Restart
+- `WebApps` placeholder page for future mini tools
+- `CVPage` displaying CV content with download button
+- `InDevelopmentPage` (password-protected mode):
+  - LocalStorage-based access key
+  - Top bar logout
+  - Reloads on valid password
 
----
-
-## 📈 Demo
-
-> (Coming soon — GitHub Pages / Vercel deployment planned)
-
----
-
-## 🛠️ Tech Stack
-
-- **React** (Create React App)
-- **React Router DOM** (dynamic routing)
-- **JavaScript** + **JSX**
-- **HTML/CSS** for layout and inline styles
-
----
-
-## 📂 Folder Structure
-
-```
-src/
-├── components/
-│   ├── Navbar.jsx         // Top search bar
-│   ├── VideoCard.jsx      // YouTube-style project cards
-│   └── ProjectModal.jsx   // (optional) modal fallback
-├── pages/
-│   └── ProjectPage.jsx    // Dedicated "watch" page for each project
-├── data/
-│   └── projects.js        // Project metadata with slugs
-├── App.js                 // Routing and homepage logic
-└── index.js               // React DOM + Router
-```
-
-Assets live in:
-```
-public/assets/thumbnails/
-```
+### 🎨 UI/UX
+- Modern, clean styles with emphasis on readability
+- Sidebar and layout optimized for wide screens
 
 ---
 
-## ⚡ Quick Start
+## 🔜 In Progress / Upcoming
+
+### 🟡 UI Enhancements
+- Full mobile-responsive adaptation
+- Stylish button animations, subtle transitions
+
+### 🟡 New Sections
+- 🎮 Additional **Mini Browser Games**
+- 📺 Local video library – streaming UI for `.mp4` files
+- 👁️‍🗨️ **Watch Tracker** using TMDb API:
+  - Movie/TV search
+  - Custom watchlists (Watched / Watching / Wishlist)
+  - Rating, episode progress
+
+### 🟡 Add-ons & Utilities
+- Plugin system for dev tools (e.g. GitHub integration)
+- Timeline module (project progression visualization)
+- Export / backup support (JSON format)
+- Drag-and-drop project uploads
+
+---
+
+## 📌 Ideas & Experiments
+- 🎧 Mini music/audio player
+- 🎥 Background video header
+- 🧩 Public / developer mode switch
+- 📱 PWA (Progressive Web App) support
+
+---
+
+## 🚀 Setup & Run
 
 ```bash
-git clone https://github.com/Laurentiu-upb/devtube.git
-cd devtube
 npm install
 npm start
 ```
 
 ---
 
-## 🔹 How Routing Works
-
-Project pages use slugs for clean URLs:
-
-- `/project/smartlauncher`
-- `/project/varroaclassifier`
-
-Each project in `projects.js` includes a `slug` field like:
-```js
-slug: "smartlauncher"
-```
-
----
-
-## 🙌 Contributions & Ideas
-
-Feel free to fork and expand:
-- Add dark mode
-- Deploy live with Vercel
-- Add animations
-- Fetch projects dynamically
-
-PRs welcome!
-
----
-
-## 📝 License
-
-[MIT](LICENSE) — free to modify and use in your own portfolio.
-
----
-
-## 👏 Credits
-
-Inspired by:
-- **YouTube** UI
-- Dev portfolios with personality
-- Real project navigation
-
----
-
-Built with passion by [Laurentiu](https://github.com/Laurentiu-upb) ❤️
+© 2025 Laurentiu. Built for fun, learning, and showcasing.
