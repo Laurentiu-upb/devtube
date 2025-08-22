@@ -5,21 +5,70 @@ const games = [
   {
     title: "Snake 🐍",
     description: "Classic snake game with emoji food, WASD/touch support, and speed scaling.",
-    image: "/assets/thumbnails/snake.jpg",
+    image: "/assets/avatar.png",
     path: "/games/snake/index.html",
     color: "#4caf50"
   },
   {
     title: "Math Sprint",
     description: "+-*/",
-    image: "/assets/thumbnails/math.jpg",
+    image: "/assets/avatar.png",
     path: "/games/math/index.html",
     color: "#4cad50"
   },
   {
+    title: "Breakout",
+    description: "Breakout game | GPT5-Style",
+    image: "/assets/avatar.png",
+    path: "/games/mini-games/breakout.html",
+    color: "#ff55ff"
+  },
+  {
+    title: "Color",
+    description: "Coloring game | GPT5-Style",
+    image: "/assets/avatar.png",
+    path: "/games/mini-games/breakout.html",
+    color: "#ff55ff"
+  },
+  {
+    title: "minesweeper",
+    description: "minesweeper game | GPT5-Style",
+    image: "/assets/avatar.png",
+    path: "/games/mini-games/minesweeper.html",
+    color: "#ff55ff"
+  },
+  {
+    title: "Pong",
+    description: "Ping-Pong game | GPT5-Style",
+    image: "/assets/avatar.png",
+    path: "/games/mini-games/pong.html",
+    color: "#ff55ff"
+  },
+  {
+    title: "Paper, Please!",
+    description: "paper please game copy | GPT5-Style",
+    image: "/assets/avatar.png",
+    path: "/games/mini-games/pp.html",
+    color: "#ff55ff"
+  },
+  {
+    title: "Snake v2.0",
+    description: "snake game | GPT5-Style",
+    image: "/assets/avatar.png",
+    path: "/games/mini-games/snake2.html",
+    color: "#ff55ff"
+  },
+  {
+    title: "Tetris",
+    description: "Tetris game style | GPT5-Style",
+    image: "/assets/avatar.png",
+    path: "/games/mini-games/tetris.html",
+    color: "#ff55ff"
+  },
+  {
     title: "Coming Soon 🎮",
     description: "More mini games will be added soon — stay tuned!",
-    image: "/assets/thumbnails/coming_soon.jpg",
+    image: "/assets/avatar.png",
     path: "#",
     color: "#888"
   }

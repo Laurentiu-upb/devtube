@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Math Sprint</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <a href="/web-games" class="back-button">← Back to Game Library</a>
+    <h1>Math Sprint 🧠</h1>
+
+    <div class="settings" id="settings">
+      <div>
+        <label>Difficulty:</label>
+        <select id="difficulty">
+          <option value="easy">Easy (+ -)</option>
+          <option value="hard">Hard (+ - × ÷)</option>
+        </select>
+      </div>
+      <div>
+        <label>Duration:</label>
+        <select id="duration">
+          <option value="30">30s</option>
+          <option value="60" selected>60s</option>
+          <option value="120">120s</option>
+        </select>
+      </div>
+      <button id="startButton">Start</button>
+    </div>
+
+    <div class="game" id="game" style="display: none;">
+      <div class="info">
+        <div>⏱️ Time: <span id="timer">0</span>s</div>
+        <div>✅ Score: <span id="score">0</span></div>
+      </div>
+
+      <div class="problem" id="problem">1 + 1</div>
+      <input type="number" id="answer" placeholder="Your answer..." />
+      <div id="feedback" class="feedback"></div>
+    </div>
+
+    <div class="overlay" id="gameOverOverlay">
+      <h2>Game Over</h2>
+      <p>Your Score: <span id="finalScore">0</span></p>
+      <button onclick="startGame()">Restart</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
