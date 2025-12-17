@@ -1,157 +1,139 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
 const games = [
   {
     title: "Snake 🐍",
     description: "Classic snake game with emoji food, WASD/touch support, and speed scaling.",
-    image: "/assets/avatar.png",
+    image: "/assets/thumbnails/snake.png",
     path: "/games/snake/index.html",
     color: "#4caf50"
   },
   {
     title: "Math Sprint",
-    description: "+-*/",
-    image: "/assets/avatar.png",
+    description: "Test your arithmetic skills against the clock.",
+    image: "/assets/thumbnails/math.png",
     path: "/games/math/index.html",
-    color: "#4cad50"
+    color: "#2196F3"
   },
   {
     title: "Breakout",
-    description: "Breakout game | GPT5-Style",
-    image: "/assets/avatar.png",
-    path: "/games/mini-games/breakout.html",
+    description: "The timeless brick-breaking arcade game.",
+    image: "/assets/thumbnails/breakout.png",
+    path: "/games/breakout/index.html",
     color: "#ff55ff"
   },
   {
-    title: "Color",
-    description: "Coloring game | GPT5-Style",
-    image: "/assets/avatar.png",
-    path: "/games/mini-games/breakout.html",
-    color: "#ff55ff"
-  },
-  {
-    title: "minesweeper",
-    description: "minesweeper game | GPT5-Style",
-    image: "/assets/avatar.png",
-    path: "/games/mini-games/minesweeper.html",
-    color: "#ff55ff"
+    title: "Minesweeper",
+    description: "A classic game of logic and deduction.",
+    image: "/assets/thumbnails/minesweeper.png",
+    path: "/games/minesweeper/index.html",
+    color: "#f44336"
   },
   {
     title: "Pong",
-    description: "Ping-Pong game | GPT5-Style",
-    image: "/assets/avatar.png",
-    path: "/games/mini-games/pong.html",
-    color: "#ff55ff"
+    description: "The original two-dimensional table tennis simulator.",
+    image: "/assets/thumbnails/pong.png",
+    path: "/games/pong/index.html",
+    color: "#FFC107"
   },
   {
-    title: "Paper, Please!",
-    description: "paper please game copy | GPT5-Style",
-    image: "/assets/avatar.png",
-    path: "/games/mini-games/pp.html",
-    color: "#ff55ff"
-  },
-  {
-    title: "Snake v2.0",
-    description: "snake game | GPT5-Style",
-    image: "/assets/avatar.png",
-    path: "/games/mini-games/snake2.html",
-    color: "#ff55ff"
+    title: "Papers, Please!",
+    description: "A simplified take on the dystopian document thriller.",
+    image: "/assets/thumbnails/papers-please.png",
+    path: "/games/papers-please/index.html",
+    color: "#795548"
   },
   {
     title: "Tetris",
-    description: "Tetris game style | GPT5-Style",
-    image: "/assets/avatar.png",
-    path: "/games/mini-games/tetris.html",
-    color: "#ff55ff"
+    description: "The classic puzzle game of falling blocks.",
+    image: "/assets/thumbnails/tetris.png",
+    path: "/games/tetris/index.html",
+    color: "#9C27B0"
   },
   {
     title: "Coming Soon 🎮",
     description: "More mini games will be added soon — stay tuned!",
-    image: "/assets/avatar.png",
+    image: "/assets/thumbnails/coming-soon.png",
     path: "#",
     color: "#888"
   }
 ];
 
 const WebGames = () => {
-  const navigate = useNavigate();
-
   return (
     <div style={{
-      margin: "40px auto",
-      padding: "0 24px",
-      maxWidth: "1200px"
+      background: "var(--background-color)",
+      color: "var(--on-background-color)",
+      margin: "0 auto",
+      padding: "2.5rem 1.5rem",
+      maxWidth: "75rem",
+      fontFamily: "'Inter', sans-serif"
     }}>
-      <h1 style={{ textAlign: "center", marginBottom: 40 }}>🎮 WEB GAMES</h1>
+      <h1 style={{ textAlign: "center", marginBottom: "2.5rem", color: "var(--primary-color)" }}>🎮 Web Games</h1>
 
       <div style={{
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))",
-        gap: "40px",
+        gridTemplateColumns: "repeat(auto-fill, minmax(17.5rem, 1fr))",
+        gap: "1.5rem",
         justifyItems: "center"
       }}>
         {games.map((game, i) => (
           <a
             key={i}
             href={game.path}
-            target="_blank"
-            rel="noopener noreferrer"
             style={{
-              width: 240,
-              minHeight: 320,
-              borderRadius: 14,
-              background: "#fff",
-              border: `3px solid ${game.color}`,
+              width: "100%",
               textDecoration: "none",
-              padding: "24px 20px",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              transition: "all 0.2s ease",
-              color: "#111",
-              boxShadow: "0 2px 6px rgba(0,0,0,0.06)"
+              color: "inherit",
+              display: 'block'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "translateY(-4px)";
-              e.currentTarget.style.boxShadow = `0 6px 16px ${game.color}33`;
+                if (game.path === "#") return;
+                e.currentTarget.style.transform = "translateY(-0.25rem)";
+                e.currentTarget.style.boxShadow = `0 0.375rem 1.25rem rgba(0,0,0,0.3)`;
+                e.currentTarget.firstChild.style.borderColor = game.color;
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "0 2px 6px rgba(0,0,0,0.06)";
+                if (game.path === "#") return;
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "none";
+                e.currentTarget.firstChild.style.borderColor = '#333';
             }}
           >
             <div style={{
-              width: "100%",
-              height: 120,
+              height: "100%",
+              background: "var(--surface-color)",
+              borderRadius: "0.875rem",
+              border: `0.125rem solid ${game.path === '#' ? '#444' : '#333'}`,
               overflow: "hidden",
-              borderRadius: 10,
-              marginBottom: 16
+              transition: "all 0.2s ease-in-out",
             }}>
               <img
                 src={game.image}
                 alt={game.title}
                 style={{
                   width: "100%",
-                  height: "100%",
-                  objectFit: "cover"
+                  height: "10rem",
+                  objectFit: "cover",
+                  display: "block"
                 }}
               />
-            </div>
+              <div style={{ padding: "1rem" }}>
+                <div style={{
+                  fontWeight: "bold",
+                  fontSize: "1.2rem",
+                  marginBottom: "0.5rem",
+                  color: game.color
+                }}>{game.title}</div>
 
-            <div style={{
-              textAlign: "center",
-              fontWeight: "bold",
-              fontSize: "1rem",
-              marginBottom: 6
-            }}>{game.title}</div>
-
-            <div style={{
-              fontSize: "0.9rem",
-              color: "#555",
-              textAlign: "center"
-            }}>
-              {game.description}
+                <div style={{
+                  fontSize: "0.95rem",
+                  color: "#aaa",
+                  lineHeight: 1.5
+                }}>
+                  {game.description}
+                </div>
+              </div>
             </div>
           </a>
         ))}

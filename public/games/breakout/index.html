@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Breakout+ – HTML5 Canvas</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div style="position: absolute; top: 1rem; left: 1rem; display: flex; gap: 0.5rem;">
+  <button onclick="history.back()">Back</button>
+  <a href="/"><button>Home</button></a>
+</div>
+<div class="wrap">
+  <!-- Bigger canvas -->
+  <canvas id="board" width="720" height="540" class="panel" aria-label="Breakout game area" role="img"></canvas>
+  <div class="aside">
+    <div class="panel">
+      <h1>Breakout+</h1>
+      <div class="stats">
+        <div>Score</div><div id="score">0</div>
+        <div>Lives</div><div id="lives">4</div>
+        <div>Level</div><div id="level">1</div>
+        <div>Balls</div><div id="balls">1</div>
+      </div>
+      <div class="btnrow">
+        <button id="btnStart">Start / Restart (R)</button>
+        <button id="btnPause" class="secondary">Pause (P)</button>
+      </div>
+    </div>
+    <div class="panel legend">
+      <div><strong>Controls</strong></div>
+      <div>← / → or A / D to move (mouse also works)</div>
+      <div>Click or Space to <em>launch</em> the ball when it rests on the paddle</div>
+      <div>P pause, R restart</div>
+      <div>Power-ups: ➕ Life, ⌛ Slow, ⤢ Expand</div>
+    </div>
+    <details class="diag" id="diagBox">
+      <summary>Diagnostics & tests</summary>
+      <div id="diag"></div>
+      <div style="margin-top:8px"><button id="btnTests" class="secondary">Run tests again</button></div>
+    </details>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,67 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Modal from "react-modal";
-
-Modal.setAppElement("#root");
+import VideoCard from "../components/VideoCard";
 
 const ProfilePage = () => {
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState("projects");
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const showcaseProjects = [
-    {
-      title: "Smart Launcher",
-      image: "/assets/thumbnails/launcher.jpg",
-      type: "Windows App",
-      description: "Customizable launcher for games, apps, and websites."
-    },
-    {
-      title: "Varroa Mite Classifier",
-      image: "/assets/thumbnails/launcher.jpg",
-      type: "AI Model / Image Classifier",
-      description: "Detects mite infestation on bee colonies from images."
-    },
-    {
-      title: "Snake Web Game",
-      image: "/assets/thumbnails/launcher.jpg",
-      type: "Web Game",
-      description: "Classic snake game built in JavaScript for browsers."
-    },
-    {
-      title: "Smart Launcher",
-      image: "/assets/thumbnails/launcher.jpg",
-      type: "Windows App",
-      description: "Customizable launcher for games, apps, and websites."
-    },
-    {
-      title: "Smart Launcher",
-      image: "/assets/thumbnails/launcher.jpg",
-      type: "Windows App",
-      description: "Customizable launcher for games, apps, and websites."
-    },
-    {
-      title: "Varroa Mite Classifier",
-      image: "/assets/thumbnails/launcher.jpg",
-      type: "AI Model / Image Classifier",
-      description: "Detects mite infestation on bee colonies from images."
-    },
-    {
-      title: "Snake Web Game",
-      image: "/assets/thumbnails/launcher.jpg",
-      type: "Web Game",
-      description: "Classic snake game built in JavaScript for browsers."
-    },
-    {
-      title: "Smart Launcher",
-      image: "/assets/thumbnails/launcher.jpg",
-      type: "Windows App",
-      description: "Customizable launcher for games, apps, and websites."
-    }
-  ];
+  const [activeTab, setActiveTab] = useState("about me");
 
   return (
-    <div style={{ fontFamily: "sans-serif", background: "#fff", minHeight: "100vh" }}>
+    <div style={{ fontFamily: "'Inter', sans-serif", background: "var(--background-color)", color: "var(--on-background-color)", minHeight: "100vh" }}>
       {/* Banner */}
       <div
         style={{
@@ -70,7 +16,6 @@ const ProfilePage = () => {
           backgroundImage: "url('/assets/banner.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          borderRadius: "0 0 12px 12px"
         }}
       />
 
@@ -78,7 +23,7 @@ const ProfilePage = () => {
       <div style={{
         display: "flex",
         alignItems: "center",
-        marginTop: "0px",
+        marginTop: "-48px",
         padding: "0 40px",
         gap: 20
       }}>
@@ -89,105 +34,61 @@ const ProfilePage = () => {
             width: 100,
             height: 100,
             borderRadius: "50%",
-            border: "4px solid #fff",
-            background: "#fff",
+            border: "4px solid var(--background-color)",
+            background: "var(--surface-color)",
             objectFit: "cover"
           }}
         />
-        <div>
-          <h2 style={{ margin: 0, fontSize: "1.8rem" }}>Laurentiu</h2>
-          <p style={{ margin: "4px 0", color: "#555" }}>
+        <div style={{
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          padding: '1rem',
+          borderRadius: '8px',
+          backdropFilter: 'blur(5px)'
+        }}>
+          <h2 style={{ margin: 0, fontSize: "2rem", fontWeight: "bold" }}>Laurentiu</h2>
+          <p style={{ margin: "4px 0", color: "#aaa" }}>
             I'm a developer and creative explorer focused on building tools and telling visual stories.
             <span
-              style={{ color: "#1a73e8", cursor: "pointer", fontWeight: 500 }}
-              onClick={() => setIsModalOpen(true)}
+              style={{ color: "var(--primary-color)", cursor: "pointer", fontWeight: 500, marginLeft: '4px' }}
+              onClick={() => setActiveTab("about me")}
             > ...more</span>
           </p>
         </div>
       </div>
-
-      {/* Bio Modal */}
-      <Modal
-        isOpen={isModalOpen}
-        onRequestClose={() => setIsModalOpen(false)}
-        contentLabel="About Me"
-        style={{
-          overlay: { backgroundColor: "rgba(0,0,0,0.4)" },
-          content: {
-            maxWidth: 600,
-            margin: "auto",
-            padding: "24px",
-            borderRadius: "10px"
-          }
-        }}
-      >
-        <h2>About Me</h2>
-        <p>
-          Hey! I'm Laurentiu, a passionate developer and visual thinker who enjoys merging tech with creativity.
-          Whether I'm building a custom launcher for productivity, training AI to spot pests in beekeeping, or just
-          creating a nostalgic game like Snake — I’m always exploring new ideas.
-        </p>
-        <p>
-          My interests stretch across automation, design systems, educational content, and tiny web tools that
-          make everyday tasks easier. Outside of coding, I enjoy photography and documenting the world around me.
-        </p>
-        <p>
-          I'm currently building DevTube — my portfolio styled like YouTube, and experimenting with smart productivity tools
-          and real-time interfaces.
-        </p>
-        <button onClick={() => setIsModalOpen(false)}>Close</button>
-      </Modal>
 
       {/* Tabs */}
       <div style={{
         display: "flex",
         gap: 16,
         padding: "16px 40px",
-        borderBottom: "1px solid #eee",
+        borderBottom: "1px solid #333",
         marginBottom: 20
       }}>
-{["Projects", "Categories", "About Me", "Contact"].map((tab) => {
-  const isActive = activeTab === tab.toLowerCase();
+{[
+  { label: "About Me", action: () => setActiveTab("about me") },
+  { label: "Projects by Categories", action: () => navigate("/categories") },
+  { label: "Social Media", action: () => navigate("/socials") },
+  { label: "CV", action: () => navigate("/cv") },
+].map((tab) => {
+  const isActive = activeTab === tab.label.toLowerCase();
   return (
     <button
-      key={tab}
-      onClick={() =>
-        tab === "Categories"
-          ? navigate("/categories")
-          : tab === "Contact"
-          ? navigate("/contact")
-          : setActiveTab(tab.toLowerCase())
-      }
+      key={tab.label}
+      onClick={tab.action}
       style={{
-        background: isActive ? "linear-gradient(135deg, #111, #333)" : "#f5f5f5",
-        color: isActive ? "#fff" : "#222",
-        border: isActive ? "2px solid #111" : "1px solid #ccc",
-        borderRadius: "999px",
-        padding: "10px 26px",
-        fontSize: "0.95rem",
+        background: "transparent",
+        color: isActive ? "var(--primary-color)" : "var(--on-surface-color)",
+        border: "none",
+        borderBottom: isActive ? `2px solid var(--primary-color)` : "2px solid transparent",
+        padding: "10px 0px",
+        fontSize: "1rem",
         fontWeight: 600,
         cursor: "pointer",
-        boxShadow: isActive
-          ? "0 4px 12px rgba(0,0,0,0.3)"
-          : "0 2px 6px rgba(0,0,0,0.06)",
-        transition: "all 0.25s ease",
-        transform: isActive ? "scale(1.02)" : "scale(1)",
-        backdropFilter: "blur(2px)"
-      }}
-      onMouseEnter={(e) => {
-        if (!isActive) {
-          e.currentTarget.style.background = "linear-gradient(135deg, #fafafa, #eaeaea)";
-          e.currentTarget.style.boxShadow = "0 3px 8px rgba(0,0,0,0.08)";
-        }
-      }}
-      onMouseLeave={(e) => {
-        if (!isActive) {
-          e.currentTarget.style.background = "#f5f5f5";
-          e.currentTarget.style.boxShadow = "0 2px 6px rgba(0,0,0,0.06)";
-        }
+        transition: "all 0.2s ease",
+        marginRight: '16px'
       }}
     >
-      {tab}
+      {tab.label}
     </button>
   );
 })}
@@ -195,49 +96,28 @@ const ProfilePage = () => {
 
       {/* Content Area */}
       <div style={{ padding: "0 40px 40px" }}>
-        {activeTab === "projects" && (
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-            gap: 28,
-            justifyContent: "center"
-          }}>
-            {showcaseProjects.map((p, i) => (
-              <div key={i} style={{
-                background: "#fff",
-                borderRadius: 12,
-                overflow: "hidden",
-                boxShadow: "0 1px 6px rgba(0,0,0,0.1)"
-              }}>
-                <img src={p.image} style={{ width: "100%", height: 160, objectFit: "cover" }} />
-                <div style={{ padding: 14 }}>
-                  <strong style={{ fontSize: "1rem" }}>{p.title}</strong>
-                  <div style={{ color: "#777", fontSize: "0.85rem", marginBottom: 8 }}>{p.type}</div>
-                  <p style={{ fontSize: "0.9rem", color: "#333" }}>{p.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-
         {activeTab === "about me" && (
           <div style={{
             marginTop: 24,
-            background: "#f6f6f6",
+            background: "var(--surface-color)",
             padding: 24,
             borderRadius: 10,
-            lineHeight: 1.7
+            lineHeight: 1.7,
+            border: '1px solid #333'
           }}>
+            <h2 style={{color: 'var(--primary-color)', marginTop: 0}}>About Me</h2>
             <p>
-              I’m a multi-passionate builder who thrives in both structured and experimental projects. From clean
-              UI/UX implementations to machine learning workflows, I enjoy every step of creation.
+              Hey! I'm Laurentiu, a passionate developer and visual thinker who enjoys merging tech with creativity.
+              Whether I'm building a custom launcher for productivity, training AI to spot pests in beekeeping, or just
+              creating a nostalgic game like Snake — I’m always exploring new ideas.
             </p>
             <p>
-              I believe in documenting the process, sharing knowledge, and building for humans — not just machines.
-              This portfolio is part of that idea: a showcase of tech, creativity, and authenticity.
+              My interests stretch across automation, design systems, educational content, and tiny web tools that
+              make everyday tasks easier. Outside of coding, I enjoy photography and documenting the world around me.
             </p>
             <p>
-              I’m currently open to collaboration, feedback, and new opportunities. Let’s build something together.
+              I'm currently building DevTube — my portfolio styled like YouTube, and experimenting with smart productivity tools
+              and real-time interfaces.
             </p>
           </div>
         )}

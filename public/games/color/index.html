@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Coloring Studio</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div style="position: absolute; top: 1rem; left: 1rem; display: flex; gap: 0.5rem;">
+    <button onclick="history.back()">Back</button>
+    <a href="/"><button>Home</button></a>
+  </div>
+  <div class="wrap">
+    <div id="stage" class="panel" aria-label="Coloring canvas" role="img">
+      <canvas id="paint" width="900" height="600"></canvas>
+      <canvas id="outline" width="900" height="600"></canvas>
+    </div>
+    <div class="aside">
+      <div class="panel">
+        <h1>Coloring Studio</h1>
+        <div class="row toolrow">
+          <div class="tool active" data-tool="brush">Brush</div>
+          <div class="tool" data-tool="eraser">Eraser</div>
+          <div class="tool" data-tool="fill">Fill</div>
+          <div class="tool" data-tool="picker">Eyedrop</div>
+        </div>
+        <div class="row">
+          <label>Brush size</label>
+          <input id="size" type="range" min="1" max="80" value="24"/>
+          <span id="sizeVal">24</span>
+        </div>
+        <div class="row">
+          <label>Page</label>
+          <select id="page">
+            <option value="flower" selected>Flower</option>
+            <option value="rocket">Rocket</option>
+            <option value="butterfly">Butterfly</option>
+            <option value="house">House</option>
+            <option value="blank">Blank</option>
+          </select>
+        </div>
+        <div class="row">
+          <label>Color</label>
+          <div class="palette" id="pal"></div>
+          <input type="color" id="color" value="#ff5a5a"/>
+        </div>
+        <div class="btnrow">
+          <button id="undo" class="secondary">Undo (Z)</button>
+          <button id="redo" class="secondary">Redo (Y)</button>
+          <button id="clear" class="secondary">Clear</button>
+          <button id="save">Save PNG</button>
+        </div>
+      </div>
+      <details class="diag" id="diagBox">
+        <summary>Diagnostics & tests</summary>
+        <div id="diag"></div>
+        <div class="small">Fill respects outline barriers; history stack integrity; color parser.</div>
+        <div style="margin-top:8px"><button id="btnTests" class="secondary">Run tests again</button></div>
+      </details>
+    </div>
+  </div>
+<script src="script.js"></script>
+</body>
+</html>

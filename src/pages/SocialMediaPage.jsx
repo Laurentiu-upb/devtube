@@ -40,7 +40,7 @@ function SocialMediaPage() {
       description: "Casual thoughts & behind the scenes",
       status: "Active",
       latest: "Posted last week",
-      color: "#000"
+      color: "#FFFFFF"
     },
     {
       name: "Facebook",
@@ -60,7 +60,7 @@ function SocialMediaPage() {
       description: "Fun, dev humor & experiments",
       status: "Active",
       latest: "New TikTok last week",
-      color: "#010101"
+      color: "#FFFFFF"
     },
     {
       name: "Discord",
@@ -80,7 +80,7 @@ function SocialMediaPage() {
       description: "Open source + DevTube",
       status: "Active",
       latest: "Updated 1 repo this month",
-      color: "#333"
+      color: "#FFFFFF"
     },
     {
       name: "Reddit",
@@ -111,46 +111,48 @@ function SocialMediaPage() {
 
   return (
     <div style={{
-      margin: "40px auto",
-      padding: "0 24px",
-      maxWidth: "1200px"
+      margin: "2rem auto",
+      padding: "0 1rem",
+      maxWidth: "75rem",
+      fontFamily: "'Inter', sans-serif",
+      color: 'var(--on-background-color)'
     }}>
       {/* Avatar + Header */}
       <div style={{
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        marginBottom: 20
+        marginBottom: "2rem"
       }}>
         <img
           src="/assets/avatar.png"
           alt="Laurentiu Avatar"
           style={{
-            width: 96,
-            height: 96,
+            width: "5rem",
+            height: "5rem",
             borderRadius: "50%",
             objectFit: "cover",
-            marginBottom: 16,
-            boxShadow: "0 0 8px rgba(0,0,0,0.2)"
+            marginBottom: "1rem",
+            border: "0.125rem solid var(--primary-color)"
           }}
         />
-        <h1 style={{ margin: 0, fontSize: "1.8rem" }}>Laurentiu’s Social Hub</h1>
+        <h1 style={{ margin: 0, fontSize: "1.75rem", color: 'var(--primary-color)' }}>Laurentiu’s Social Hub</h1>
 
         <div style={{
-          marginTop: 20,
-          maxWidth: 720,
+          marginTop: "1.25rem",
+          maxWidth: "45rem",
           textAlign: "center",
-          background: "linear-gradient(145deg, #f2f2f2, #cccccc)",
-          borderRadius: "14px",
-          padding: "24px 32px",
-          boxShadow: "0 4px 12px rgba(0,0,0,0.05)",
+          background: "var(--surface-color)",
+          borderRadius: "0.75rem",
+          padding: "1.25rem 1.75rem",
           fontSize: "1rem",
           lineHeight: 1.6,
-          color: "#333"
+          color: "#ccc",
+          border: "0.0625rem solid #333"
         }}>
           Hey, I’m <strong>Laurentiu</strong> 👋 — a developer and creative explorer.<br />
-          I build things with <span style={{ color: "#4e91f9", fontWeight: 600 }}>code</span>,
-          tell stories through <span style={{ color: "#e1306c", fontWeight: 600 }}>photography</span>,
+          I build things with <span style={{ color: "var(--secondary-color)", fontWeight: 600 }}>code</span>,
+          tell stories through <span style={{ color: "#E1306C", fontWeight: 600 }}>photography</span>,
           and love sharing across platforms.<br />
           You’ll find me working on tools, experiments, and a bit of everything in between 🚀
         </div>
@@ -159,8 +161,8 @@ function SocialMediaPage() {
       {/* Social Cards */}
       <div style={{
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))",
-        gap: "40px",
+        gridTemplateColumns: "repeat(auto-fill, minmax(12.5rem, 1fr))",
+        gap: "3.5rem",
         justifyItems: "center"
       }}>
         {socials.map((s, i) => (
@@ -170,33 +172,34 @@ function SocialMediaPage() {
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              width: 240,
-              minHeight: 320,
-              borderRadius: 14,
-              background: "#fff",
-              border: `3px solid ${s.color}`,
+              width: "100%",
+              minHeight: "14rem",
+              borderRadius: "0.75rem",
+              background: "var(--surface-color)",
+              border: `0.0625rem solid #333`,
               textDecoration: "none",
-              padding: "24px 20px",
+              padding: "1rem",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
               transition: "all 0.2s ease",
-              color: "#111",
-              boxShadow: "0 2px 6px rgba(0,0,0,0.06)"
+              color: "var(--on-surface-color)",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "translateY(-4px)";
-              e.currentTarget.style.boxShadow = `0 6px 16px ${s.color}33`;
+              e.currentTarget.style.transform = "translateY(-0.25rem)";
+              e.currentTarget.style.boxShadow = `0 0.375rem 1rem rgba(0,0,0,0.3)`
+              e.currentTarget.style.borderColor = `var(--primary-color)`
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "0 2px 6px rgba(0,0,0,0.06)";
+              e.currentTarget.style.boxShadow = "none"
+              e.currentTarget.style.borderColor = `#333`
             }}
           >
             <div style={{
-              width: 56,
-              height: 56,
-              marginBottom: 14,
+              width: "3rem",
+              height: "3rem",
+              marginBottom: "0.875rem",
               display: "flex",
               alignItems: "center",
               justifyContent: "center"
@@ -207,7 +210,8 @@ function SocialMediaPage() {
                 style={{
                   maxWidth: "100%",
                   maxHeight: "100%",
-                  objectFit: "contain"
+                  objectFit: "contain",
+                  filter: s.name === 'Threads' || s.name === 'GitHub' || s.name === 'TikTok' ? 'invert(1)' : 'none'
                 }}
               />
             </div>
@@ -215,8 +219,9 @@ function SocialMediaPage() {
             <div style={{
               textAlign: "center",
               fontWeight: "bold",
-              fontSize: "1rem",
-              marginBottom: 6
+              fontSize: "1.1rem",
+              marginBottom: "0.375rem",
+              color: s.color
             }}>{s.name}</div>
 
             <div
@@ -227,8 +232,8 @@ function SocialMediaPage() {
               }}
               style={{
                 fontSize: "0.9rem",
-                color: "#555",
-                marginBottom: 4,
+                color: "#aaa",
+                marginBottom: "0.25rem",
                 cursor: "pointer",
                 textDecoration: "underline dotted",
               }}
@@ -238,24 +243,24 @@ function SocialMediaPage() {
             </div>
 
             <div style={{
-              fontSize: "0.8rem",
-              color: "#777",
+              fontSize: "0.85rem",
+              color: "#888",
               textAlign: "center",
-              marginBottom: 8
+              marginBottom: "0.5rem"
             }}>{s.description}</div>
 
             <div style={{
-              fontSize: "0.75rem",
-              color: "#888",
+              fontSize: "0.8rem",
+              color: "#777",
               marginTop: "auto"
             }}>
               {s.latest}
             </div>
 
             <div style={{
-              fontSize: "0.7rem",
-              marginTop: 4,
-              color: s.status === "Active" ? "#4CAF50" : "#999",
+              fontSize: "0.75rem",
+              marginTop: "0.25rem",
+              color: s.status === "Active" ? "var(--secondary-color)" : "#777",
               fontWeight: "bold"
             }}>
               {s.status}

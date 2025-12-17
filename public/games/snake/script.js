@@ -2,7 +2,7 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
 const box = 20;
-let snake, food, score, direction, interval;
+let snake, food, score, direction, nextDirection, interval;
 let isGameOver = false;
 
 const emojis = ["🍎", "🍇", "🍒", "🍓", "🥝", "🍊", "🍉"];
@@ -19,10 +19,10 @@ function getSpeedForScore(score) {
   return { delay: 40, multiplier: "3.0x" };
 }
 
-
 function startGame() {
   snake = [{ x: 9 * box, y: 9 * box }];
   direction = "RIGHT";
+  nextDirection = "RIGHT";
   score = 0;
   food = {
     x: Math.floor(Math.random() * 19) * box,
@@ -34,14 +34,15 @@ function startGame() {
   isGameOver = false;
   clearInterval(interval);
   const speedInfo = getSpeedForScore(score);
-interval = setInterval(draw, speedInfo.delay);
-document.getElementById("speed").textContent = speedInfo.multiplier;
-
+  interval = setInterval(draw, speedInfo.delay);
+  document.getElementById("speed").textContent = speedInfo.multiplier;
 }
 
 function draw() {
   ctx.fillStyle = "#111";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  direction = nextDirection;
 
   for (let i = 0; i < snake.length; i++) {
     ctx.fillStyle = i === 0 ? "#00f" : "#0f0";
@@ -79,9 +80,8 @@ function draw() {
     };
     clearInterval(interval);
     const speedInfo = getSpeedForScore(score);
-interval = setInterval(draw, speedInfo.delay);
-document.getElementById("speed").textContent = speedInfo.multiplier;
-
+    interval = setInterval(draw, speedInfo.delay);
+    document.getElementById("speed").textContent = speedInfo.multiplier;
   } else {
     snake.pop();
   }
@@ -98,29 +98,31 @@ function collision(head, arr) {
 
 document.addEventListener("keydown", (e) => {
   const key = e.key.toLowerCase();
-  if ((key === "a" || key === "arrowleft") && direction !== "RIGHT") direction = "LEFT";
-  if ((key === "w" || key === "arrowup") && direction !== "DOWN") direction = "UP";
-  if ((key === "d" || key === "arrowright") && direction !== "LEFT") direction = "RIGHT";
-  if ((key === "s" || key === "arrowdown") && direction !== "UP") direction = "DOWN";
+  if ((key === "a" || key === "arrowleft") && direction !== "RIGHT") nextDirection = "LEFT";
+  else if ((key === "w" || key === "arrowup") && direction !== "DOWN") nextDirection = "UP";
+  else if ((key === "d" || key === "arrowright") && direction !== "LEFT") nextDirection = "RIGHT";
+  else if ((key === "s" || key === "arrowdown") && direction !== "UP") nextDirection = "DOWN";
 });
 
 // Touch controls
 let touchStartX, touchStartY;
 canvas.addEventListener("touchstart", (e) => {
+  e.preventDefault();
   const t = e.touches[0];
   touchStartX = t.clientX;
   touchStartY = t.clientY;
 });
 canvas.addEventListener("touchend", (e) => {
+  e.preventDefault();
   const t = e.changedTouches[0];
   const dx = t.clientX - touchStartX;
   const dy = t.clientY - touchStartY;
 
   if (Math.abs(dx) > Math.abs(dy)) {
-    if (dx > 0 && direction !== "LEFT") direction = "RIGHT";
-    if (dx < 0 && direction !== "RIGHT") direction = "LEFT";
+    if (dx > 0 && direction !== "LEFT") nextDirection = "RIGHT";
+    else if (dx < 0 && direction !== "RIGHT") nextDirection = "LEFT";
   } else {
-    if (dy > 0 && direction !== "UP") direction = "DOWN";
-    if (dy < 0 && direction !== "DOWN") direction = "UP";
+    if (dy > 0 && direction !== "UP") nextDirection = "DOWN";
+    else if (dy < 0 && direction !== "DOWN") nextDirection = "UP";
   }
 });

@@ -15,25 +15,25 @@ function ProjectModal({ project, onClose }) {
     }}>
       <div style={{
         backgroundColor: '#fff',
-        borderRadius: 12,
+        borderRadius: "0.75rem",
         width: '90%',
-        maxWidth: 600,
-        padding: 24,
+        maxWidth: "37.5rem",
+        padding: "1.5rem",
         position: 'relative',
-        boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
+        boxShadow: '0 0.625rem 1.875rem rgba(0,0,0,0.2)',
         fontFamily: 'Arial'
       }}>
         <button onClick={onClose} style={{
           position: 'absolute',
-          top: 12,
-          right: 16,
+          top: "0.75rem",
+          right: "1rem",
           background: 'none',
           border: 'none',
           fontSize: '1.5rem',
           cursor: 'pointer'
         }}>✖</button>
 
-        <img src={project.thumbnail} alt={project.title} style={{ width: '100%', borderRadius: 8, marginBottom: 16 }} />
+        <img src={project.thumbnail} alt={project.title} style={{ width: '100%', borderRadius: "0.5rem", marginBottom: "1rem" }} />
         <h2>{project.title}</h2>
         <p>{project.description}</p>
         <p><strong>Stack:</strong> {project.stack.join(', ')}</p>

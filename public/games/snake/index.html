@@ -7,18 +7,10 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <a href="/web-games" style="
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  background: #1a73e8;
-  color: white;
-  padding: 8px 14px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  font-family: sans-serif;
-">← Back to Game Library</a>
+  <div style="position: absolute; top: 1rem; left: 1rem; display: flex; gap: 0.5rem;">
+    <button onclick="history.back()">Back</button>
+    <a href="/"><button>Home</button></a>
+  </div>
 
   <div class="container">
     <div class="sidebar">

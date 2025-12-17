@@ -1,5 +1,4 @@
 // Sidebar.jsx
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -13,51 +12,51 @@ function Sidebar({ expanded }) {
       style={{
         display: "flex",
         alignItems: "center",
-        gap: expanded ? 16 : 0,
+        gap: expanded ? "1rem" : 0,
         justifyContent: expanded ? "flex-start" : "center",
-        padding: "10px 12px",
-        borderRadius: 10,
+        padding: "0.5rem 0.6rem",
+        borderRadius: "0.4rem",
         fontSize: "0.9rem",
-        color: "#fff",
+        color: "var(--on-surface-color)",
         cursor: "pointer",
-        transition: "all 0.2s",
+        transition: "background-color 0.2s ease-in-out",
         whiteSpace: "nowrap",
-        overflow: "hidden"
+        overflow: "hidden",
+        height: "2.2rem", // Set a fixed height for all items
+        marginBottom: "0.2rem" // Add some space between items
       }}
-      onMouseEnter={e => e.currentTarget.style.backgroundColor = "#373737"}
+      onMouseEnter={e => e.currentTarget.style.backgroundColor = "#2a2a2a"}
       onMouseLeave={e => e.currentTarget.style.backgroundColor = "transparent"}
     >
-      <span style={{ fontSize: "1.2rem", width: 24, textAlign: "center" }}>{icon}</span>
-      {expanded && <span>{label}</span>}
+      <span style={{ fontSize: "1.2rem", width: "1.3rem", textAlign: "center", display: "flex", alignItems: "center" }}>{icon}</span>
+      {expanded && <span style={{ fontFamily: "'Inter', sans-serif" }}>{label}</span>}
     </div>
   );
 
   return (
     <div style={{
-      width: expanded ? 200 : 72,
-      backgroundColor: "#0f0f0f",
-      color: "#fff",
+      width: expanded ? "12rem" : "4.5rem",
+      backgroundColor: "var(--surface-color)",
+      color: "var(--on-surface-color)",
       height: "100vh",
-      paddingTop: 72,
+      paddingTop: "4rem", // Space for the navbar
+      paddingLeft: "0.6rem",
+      paddingRight: "0.6rem",
       position: "fixed",
       top: 0,
       left: 0,
       display: "flex",
       flexDirection: "column",
-      gap: 4,
+      gap: "0.4rem",
       transition: "width 0.2s ease",
-      fontFamily: "Arial, sans-serif",
-      boxShadow: "2px 0 4px rgba(0,0,0,0.2)"
+      fontFamily: "'Inter', sans-serif",
+      boxShadow: "0.1rem 0 0.25rem rgba(0,0,0,0.3)",
+      borderRight: "0.05rem solid #2a2a2a"
     }}>
       {navItem("Home", "🏠", "/")}
       {navItem("Profile", "👤", "/profile")}
       {navItem("Categories", "🗂", "/categories")}
       {navItem("Contact", "📬", "/contact")}
-      <hr style={{ borderColor: "#444", width: "100%" }} />
-      {navItem("My Social Media", "📱", "/socials")}
-      {navItem("My Web Apps", "🧩", "/web-apps")}
-      {navItem("My Web Games", "🎮", "/web-games")}
-      {navItem("My CV", "📄", "/cv")}
     </div>
   );
 }

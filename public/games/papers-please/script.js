@@ -1,61 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Checkpoint Inspector – Day 1</title>
-<style>
-  :root { --bg:#0b0f15; --panel:#121826; --text:#e7ecf3; --muted:#9fb0c8; --accent:#3ea6ff; --good:#69e089; --bad:#ff8585; }
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;background:radial-gradient(1200px 800px at 70% -10%,#152033 0%,var(--bg) 60%);color:var(--text);display:grid;place-items:center}
-  .wrap{display:grid;grid-template-columns:auto 320px;gap:18px;align-items:start;padding:16px}
-  .panel{background:linear-gradient(180deg,#0f1524 0%,var(--panel) 100%);border:1px solid #1e2a44;border-radius:16px;padding:14px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
-  h1{margin:0 0 8px;font-size:18px;font-weight:700;letter-spacing:.5px;color:var(--text)}
-  .stats{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px;font-weight:600;margin-bottom:8px}
-  .stats div:nth-child(odd){color:var(--muted);font-weight:500}
-  .btnrow{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 0}
-  button{cursor:pointer;background:var(--accent);color:#09121f;font-weight:800;border:0;padding:10px 12px;border-radius:12px;box-shadow:0 6px 16px rgba(62,166,255,.35)}
-  button.secondary{background:#24324d;color:var(--text);box-shadow:none;border:1px solid #2d3d61}
-  #board{background:#0c1220;border:2px solid #213357;border-radius:10px;display:block;margin:auto}
-  .legend,.diag{font-size:12px;color:var(--muted);line-height:1.35}
-  details.diag{background:#0c1220;border:1px solid #1e2a44;border-radius:12px;padding:10px}
-  .pass{color:var(--good)}.fail{color:var(--bad)}
-  .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:6px}
-  select, input[type="number"], input[type="range"]{background:#0f1524;color:var(--text);border:1px solid #2d3d61;border-radius:10px;padding:6px 8px}
-  label{font-size:12px;color:var(--muted)}
-  .rule{font-size:12px;color:#cfe0ff;background:#0f1a33;border:1px solid #20335b;border-radius:10px;padding:8px;margin-top:6px}
-</style>
-</head>
-<body>
-<div class="wrap">
-  <canvas id="board" width="900" height="560" class="panel" aria-label="Inspector desk" role="img"></canvas>
-  <div class="aside">
-    <div class="panel">
-      <h1>Checkpoint Inspector</h1>
-      <div class="stats">
-        <div>Score</div><div id="score">0</div>
-        <div>Queue</div><div id="queue">0</div>
-        <div>Correct</div><div id="correct">0</div>
-        <div>Mistakes</div><div id="mistakes">0</div>
-        <div>Day</div><div id="day">1</div>
-        <div>Today</div><div id="today">1982-11-23</div>
-      </div>
-      <div class="rule">Rules: Allow citizens of <b>Arstozka</b> only. Deny all others. Passports must be <b>unexpired</b>.</div>
-      <div class="btnrow">
-        <button id="btnApprove">Approve (A)</button>
-        <button id="btnDeny" class="secondary">Deny (D)</button>
-        <button id="btnNew">New Shift</button>
-      </div>
-    </div>
-    <details class="diag" id="diagBox">
-      <summary>Diagnostics & tests</summary>
-      <div id="diag"></div>
-      <div style="margin-top:8px"><button id="btnTests" class="secondary">Run tests again</button></div>
-    </details>
-  </div>
-</div>
-<script>
 (function(){
   var canvas = document.getElementById('board');
   var ctx = canvas.getContext('2d');
@@ -246,6 +188,3 @@
   startShift();
   runTests(); if (diagBox && diag.textContent.indexOf('FAIL')!==-1) diagBox.open = true;
 })();
-</script>
-</body>
-</html>

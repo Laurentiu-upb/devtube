@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Checkpoint Inspector – Day 1</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div style="position: absolute; top: 1rem; left: 1rem; display: flex; gap: 0.5rem;">
+  <button onclick="history.back()">Back</button>
+  <a href="/"><button>Home</button></a>
+</div>
+<div class="wrap">
+  <canvas id="board" width="900" height="560" class="panel" aria-label="Inspector desk" role="img"></canvas>
+  <div class="aside">
+    <div class="panel">
+      <h1>Checkpoint Inspector</h1>
+      <div class="stats">
+        <div>Score</div><div id="score">0</div>
+        <div>Queue</div><div id="queue">0</div>
+        <div>Correct</div><div id="correct">0</div>
+        <div>Mistakes</div><div id="mistakes">0</div>
+        <div>Day</div><div id="day">1</div>
+        <div>Today</div><div id="today">1982-11-23</div>
+      </div>
+      <div class="rule">Rules: Allow citizens of <b>Arstozka</b> only. Deny all others. Passports must be <b>unexpired</b>.</div>
+      <div class="btnrow">
+        <button id="btnApprove">Approve (A)</button>
+        <button id="btnDeny" class="secondary">Deny (D)</button>
+        <button id="btnNew">New Shift</button>
+      </div>
+    </div>
+    <details class="diag" id="diagBox">
+      <summary>Diagnostics & tests</summary>
+      <div id="diag"></div>
+      <div style="margin-top:8px"><button id="btnTests" class="secondary">Run tests again</button></div>
+    </details>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

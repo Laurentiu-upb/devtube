@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pong+ – Tunable Speed & Smarter AI</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div style="position: absolute; top: 1rem; left: 1rem; display: flex; gap: 0.5rem;">
+  <button onclick="history.back()">Back</button>
+  <a href="/"><button>Home</button></a>
+</div>
+<div class="wrap">
+  <canvas id="board" width="720" height="480" class="panel" aria-label="Pong game area" role="img"></canvas>
+  <div class="aside">
+    <div class="panel">
+      <h1>Pong+</h1>
+      <div class="stats">
+        <div>Left</div><div id="scoreL">0</div>
+        <div>Right</div><div id="scoreR">0</div>
+        <div>To Win</div><div><input id="winScore" type="number" min="3" max="21" value="7" style="width:72px"></div>
+        <div>Mode</div>
+        <div class="row">
+          <select id="mode">
+            <option value="solo" selected>1P vs AI</option>
+            <option value="duo">2 Players</option>
+          </select>
+          <select id="ai">
+            <option value="easy">AI: Easy</option>
+            <option value="normal" selected>AI: Normal</option>
+            <option value="hard">AI: Hard</option>
+          </select>
+        </div>
+        <div class="row">
+          <label for="padSpeed">Paddle speed</label>
+          <input id="padSpeed" type="range" min="1" max="200" value="200" />
+          <span id="padSpeedVal">200%</span>
+        </div>
+        <div class="row">
+          <label for="ballSpeed">Ball speed</label>
+          <input id="ballSpeed" type="range" min="50" max="200" value="100" />
+          <span id="ballSpeedVal">100%</span>
+        </div>
+      </div>
+      <div class="btnrow">
+        <button id="btnStart">Start / Restart (R)</button>
+        <button id="btnPause" class="secondary">Pause (P)</button>
+      </div>
+    </div>
+    <div class="panel legend">
+      <div><strong>Controls</strong></div>
+      <div>Left paddle: W / S</div>
+      <div>Right paddle: ↑ / ↓ (or AI in 1P)</div>
+      <div>Space or Click to serve</div>
+      <div>P pause, R restart</div>
+    </div>
+    <details class="diag" id="diagBox">
+      <summary>Diagnostics & tests</summary>
+      <div id="diag"></div>
+      <div style="margin-top:8px"><button id="btnTests" class="secondary">Run tests again</button></div>
+    </details>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

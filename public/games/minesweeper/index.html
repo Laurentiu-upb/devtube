@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Minesweeper – HTML5 Canvas</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div style="position: absolute; top: 1rem; left: 1rem; display: flex; gap: 0.5rem;">
+  <button onclick="history.back()">Back</button>
+  <a href="/"><button>Home</button></a>
+</div>
+<div class="wrap">
+  <canvas id="board" width="720" height="540" class="panel" aria-label="Minesweeper board" role="img"></canvas>
+  <div class="aside">
+    <div class="panel">
+      <h1>Minesweeper</h1>
+      <div class="stats">
+        <div>Mines</div><div id="mines">0</div>
+        <div>Flags</div><div id="flags">0</div>
+        <div>Time</div><div id="time">000</div>
+        <div>Size</div>
+        <div class="row">
+          <select id="difficulty">
+            <option value="beginner">Beginner 9×9 (10)</option>
+            <option value="intermediate" selected>Intermediate 16×16 (40)</option>
+            <option value="expert">Expert 30×16 (99)</option>
+            <option value="custom">Custom…</option>
+          </select>
+        </div>
+        <div id="customRow" class="row" style="display:none">
+          <label>W <input id="w" type="number" min="5" max="60" value="16" style="width:64px"></label>
+          <label>H <input id="h" type="number" min="5" max="32" value="16" style="width:64px"></label>
+          <label>M <input id="m" type="number" min="1" max="960" value="40" style="width:64px"></label>
+        </div>
+        <div class="row">
+          <label><input id="flagMode" type="checkbox"> Flag mode (mobile)</label>
+        </div>
+      </div>
+      <div class="btnrow">
+        <button id="btnNew">New Game</button>
+        <button id="btnChord" class="secondary">Chord (Space)</button>
+      </div>
+    </div>
+
+    <div class="panel legend">
+      <div><strong>Controls</strong></div>
+      <div>Left click: reveal</div>
+      <div>Right click: flag</div>
+      <div>Space on a number cell: chord</div>
+      <div>First click is safe</div>
+    </div>
+
+    <details class="diag" id="diagBox">
+      <summary>Diagnostics & tests</summary>
+      <div id="diag"></div>
+      <div style="margin-top:8px"><button id="btnTests" class="secondary">Run tests again</button></div>
+    </details>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

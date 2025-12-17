@@ -19,54 +19,33 @@ Welcome to **DevTube**, a YouTube-inspired personal portfolio web app designed t
   - WASD, touch support, overlays for Game Over + Restart
 - `WebApps` placeholder page for future mini tools
 - `CVPage` displaying CV content with download button
-- `InDevelopmentPage` (password-protected mode):
-  - LocalStorage-based access key
-  - Top bar logout
-  - Reloads on valid password
 
-### 🎨 UI/UX
-- Modern, clean styles with emphasis on readability
-- Sidebar and layout optimized for wide screens
+### 🟡 Project Showcasing
+- `ProjectPage` with searchable video cards
+- Dynamic project pages for "DevTube," "SmartLauncher," and "SnakeWeb"
+- `ProjectModal` for detailed project descriptions
+- Centralized `projects.js` for easy updates
 
----
-
-## 🔜 In Progress / Upcoming
-
-### 🟡 UI Enhancements
-- Full mobile-responsive adaptation
-- Stylish button animations, subtle transitions
-
-### 🟡 New Sections
-- 🎮 Additional **Mini Browser Games**
-- 📺 Local video library – streaming UI for `.mp4` files
-- 👁️‍🗨️ **Watch Tracker** using TMDb API:
-  - Movie/TV search
-  - Custom watchlists (Watched / Watching / Wishlist)
-  - Rating, episode progress
-
-### 🟡 Add-ons & Utilities
-- Plugin system for dev tools (e.g. GitHub integration)
-- Timeline module (project progression visualization)
-- Export / backup support (JSON format)
-- Drag-and-drop project uploads
+### 🔴 Code & Structure
+- Built with **React** and **React Router**
+- Component-based architecture (`Navbar`, `Sidebar`, `VideoCard`)
+- Clean, organized file structure
 
 ---
 
-## 📌 Ideas & Experiments
-- 🎧 Mini music/audio player
-- 🎥 Background video header
-- 🧩 Public / developer mode switch
-- 📱 PWA (Progressive Web App) support
+## 📝 License
+
+[MIT](LICENSE) — free to modify and use in your own portfolio.
 
 ---
 
-## 🚀 Setup & Run
+## 👏 Credits
 
-```bash
-npm install
-npm start
-```
+Inspired by:
+- **YouTube** UI
+- Dev portfolios with personality
+- Real project navigation
 
 ---
 
-© 2025 Laurentiu. Built for fun, learning, and showcasing.
+Built with passion by [Laurentiu](https://github.com/Laurentiu-upb) ❤️

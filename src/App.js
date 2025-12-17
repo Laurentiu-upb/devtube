@@ -1,8 +1,7 @@
 // App.js
 
 import React, { useState } from 'react';
-import { Navigate } from "react-router-dom";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import VideoCard from './components/VideoCard';
 import projects from './data/projects';
@@ -14,7 +13,8 @@ import ContactPage from "./pages/ContactPage";
 import WebGames from './pages/WebGames';
 import WebApps from './pages/WebApps';
 import CvPage from './pages/CvPage';
-//import InDevelopmentPage from "./pages/InDevelopmentPage";
+import CategoriesPage from './pages/CategoriesPage';
+import CategoryProjectsPage from './pages/CategoryProjectsPage';
 
 function Home({ query, selectedTag, setQuery, setSelectedTag }) {
   const allTags = [...new Set(projects.flatMap(p => p.tags))];
@@ -32,8 +32,8 @@ function Home({ query, selectedTag, setQuery, setSelectedTag }) {
     <>
 
       {/* Tag buttons */}
-      <div style={{ padding: '10px 20px' }}>
-        <div style={{ marginBottom: 10 }}>
+      <div style={{ padding: '0.625rem 1.25rem' }}>
+        <div style={{ marginBottom: "0.625rem" }}>
           {[...new Set([selectedTag, ...allTags.filter(tag => tag !== selectedTag)])].map((tag, i) => (
             <button
               key={i}
@@ -47,9 +47,9 @@ function Home({ query, selectedTag, setQuery, setSelectedTag }) {
                 }
               }}
               style={{
-                marginRight: 8,
-                padding: '6px 12px',
-                borderRadius: 20,
+                marginRight: "0.5rem",
+                padding: '0.375rem 0.75rem',
+                borderRadius: "1.25rem",
                 backgroundColor: tag === selectedTag ? '#ff4c4c' : '#eee',
                 color: tag === selectedTag ? '#fff' : '#000',
                 border: 'none',
@@ -65,13 +65,13 @@ function Home({ query, selectedTag, setQuery, setSelectedTag }) {
       </div>
 
       {/* Project cards */}
-      <div style={{ padding: 20 }}>
+      <div style={{ padding: "1.25rem" }}>
       <div
       style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-        gap: '16px 24px',
-        padding: '20px 32px'
+        gridTemplateColumns: 'repeat(auto-fill, minmax(18.75rem, 1fr))',
+        gap: '1rem 1.5rem',
+        padding: '1.25rem 2rem'
         }}
       >
         {filteredProjects.map((project, index) => (
@@ -95,11 +95,11 @@ function App() {
   <Sidebar expanded={sidebarExpanded} />
   <div
     style={{
-      marginLeft: sidebarExpanded ? 200 : 72,
-      paddingTop: 56,
-      paddingRight: 24,
-      paddingLeft: 24,
-      width: `calc(100% - ${sidebarExpanded ? 200 : 72}px)`
+      marginLeft: sidebarExpanded ? "12.5rem" : "4.5rem",
+      paddingTop: "3.5rem",
+      paddingRight: "1.5rem",
+      paddingLeft: "1.5rem",
+      width: `calc(100% - ${sidebarExpanded ? "12.5rem" : "4.5rem"})`
     }}
   >
 
@@ -130,6 +130,8 @@ function App() {
   <Route path="/web-games" element={<WebGames />} />
   <Route path="/web-apps" element={<WebApps />} />
   <Route path="/cv" element={<CvPage />} />
+  <Route path="/categories" element={<CategoriesPage />} />
+  <Route path="/categories/:category" element={<CategoryProjectsPage />} />
 </Routes>
 
 

@@ -33,19 +33,20 @@ const ContactPage = () => {
 
     console.log("Submitted form:", formData);
 
-    // Simulate success
     setSuccessMessage("✅ Message submitted successfully!");
     setTimeout(() => setSuccessMessage(""), 4000);
     setFormData({ name: "", email: "", message: "", file: null });
   };
 
   const inputStyle = {
-    padding: "10px 12px",
+    padding: "0.75rem",
     fontSize: "1rem",
-    borderRadius: "6px",
-    border: "1px solid #ccc",
+    borderRadius: "0.5rem",
+    border: "0.0625rem solid #333",
+    background: "var(--background-color)",
+    color: "var(--on-background-color)",
     outline: "none",
-    transition: "0.2s ease",
+    transition: "border-color 0.2s ease",
   };
 
   return (
@@ -53,39 +54,41 @@ const ContactPage = () => {
       style={{
         display: "flex",
         flexWrap: "wrap",
-        padding: "40px",
-        fontFamily: "Segoe UI, sans-serif",
-        background: "#f6f9fc",
+        padding: "2.5rem",
+        fontFamily: "'Inter', sans-serif",
+        background: "var(--background-color)",
+        color: "var(--on-background-color)",
         minHeight: "100vh",
-        gap: "40px",
+        gap: "2.5rem",
         justifyContent: "center",
+        alignItems: "flex-start",
       }}
     >
       {/* Left - Form */}
       <form
         onSubmit={handleSubmit}
         style={{
-          flex: "1 1 480px",
-          maxWidth: "600px",
-          background: "#fff",
-          padding: "30px",
-          borderRadius: "12px",
+          flex: "1 1 30rem",
+          maxWidth: "37.5rem",
+          background: "var(--surface-color)",
+          padding: "1.875rem",
+          borderRadius: "0.75rem",
           display: "flex",
           flexDirection: "column",
-          gap: "16px",
-          boxShadow: "0 2px 10px rgba(0,0,0,0.06)",
+          gap: "1.25rem",
+          border: "0.0625rem solid #333",
         }}
       >
-        <h2>Contact Me</h2>
+        <h2 style={{ color: "var(--primary-color)", marginBottom: 0 }}>Contact Me</h2>
 
         {successMessage && (
           <div
             style={{
-              backgroundColor: "#e6ffed",
-              color: "#22863a",
-              padding: "10px 16px",
-              borderRadius: "6px",
-              border: "1px solid #b7eb8f",
+              backgroundColor: "rgba(3, 218, 198, 0.1)",
+              color: "var(--secondary-color)",
+              padding: "0.625rem 1rem",
+              borderRadius: "0.375rem",
+              border: "0.0625rem solid var(--secondary-color)",
               fontWeight: 500,
               fontSize: "0.95rem",
             }}
@@ -120,33 +123,36 @@ const ContactPage = () => {
           onChange={handleChange}
           rows="6"
           required
-          style={{ ...inputStyle, resize: "vertical" }}
+          style={{ ...inputStyle, resize: "vertical", fontFamily: "'Inter', sans-serif" }}
         />
 
-        <input
-          type="file"
-          name="file"
-          accept=".pdf"
-          onChange={handleChange}
-          style={{ fontSize: "0.9rem" }}
-        />
+        <div style={{ color: '#aaa', fontSize: '0.9rem' }}>
+          <label htmlFor="file">Attach a file (PDF only):</label>
+          <input
+            type="file"
+            name="file"
+            id="file"
+            accept=".pdf"
+            onChange={handleChange}
+            style={{ display: 'block', marginTop: '0.5rem' }}
+          />
+        </div>
 
         <button
           type="submit"
           style={{
-            background: "#1a73e8",
-            color: "#fff",
-            padding: "12px 0",
+            background: "var(--primary-color)",
+            color: "var(--on-primary-color)",
+            padding: "0.75rem 0",
             border: "none",
-            borderRadius: "8px",
+            borderRadius: "0.5rem",
             fontWeight: "600",
             fontSize: "1rem",
-            boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
-            transition: "background 0.2s",
             cursor: "pointer",
+            transition: "filter 0.2s",
           }}
-          onMouseOver={(e) => (e.target.style.background = "#1669c1")}
-          onMouseOut={(e) => (e.target.style.background = "#1a73e8")}
+          onMouseOver={(e) => (e.target.style.filter = "brightness(0.9)")}
+          onMouseOut={(e) => (e.target.style.filter = "brightness(1)")}
         >
           Submit
         </button>
@@ -155,19 +161,17 @@ const ContactPage = () => {
       {/* Right - Info */}
       <div
         style={{
-          flex: "1 1 300px",
-          minWidth: "280px",
-          maxWidth: "320px",
-          padding: "30px",
-          background: "#fff",
-          borderRadius: "12px",
-          boxShadow: "0 2px 10px rgba(0,0,0,0.05)",
+          flex: "1 1 18.75rem",
+          minWidth: "17.5rem",
+          maxWidth: "20rem",
+          padding: "1.875rem",
+          background: "var(--surface-color)",
+          borderRadius: "0.75rem",
+          border: "0.0625rem solid #333",
           height: "fit-content",
-          position: "sticky",
-          top: 20,
         }}
       >
-        <h3 style={{ marginBottom: 10 }}>My Info</h3>
+        <h3 style={{ marginBottom: "0.625rem", color: 'var(--primary-color)' }}>My Info</h3>
         <p>
           <strong>Name:</strong> Laurentiu
         </p>
@@ -177,31 +181,27 @@ const ContactPage = () => {
         <p>
           <strong>Phone:</strong> +40 700 000 000
         </p>
-        <hr style={{ margin: "20px 0" }} />
+        <hr style={{ margin: "1.25rem 0", borderColor: "#333" }} />
 
-        <h4>Quick Message Links</h4>
-        <ul style={{ listStyle: "none", padding: 0, fontSize: "0.95rem" }}>
+        <h4 style={{ color: 'var(--primary-color)' }}>Quick Message Links</h4>
+        <ul style={{ listStyle: "none", padding: 0, fontSize: "0.95rem", lineHeight: 2 }}>
           <li>
-            <a href="https://wa.me/40700000000" target="_blank" rel="noreferrer">
+            <a href="https://wa.me/40700000000" target="_blank" rel="noreferrer" style={{ color: 'var(--secondary-color)', textDecoration: 'none'}}>
               📱 WhatsApp
             </a>
           </li>
           <li>
-            <a
-              href="https://www.instagram.com/direct/t/yourusername"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href="#" target="_blank" rel="noreferrer" style={{ color: 'var(--secondary-color)', textDecoration: 'none'}}>
               📷 Instagram DM
             </a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/in/yourusername" target="_blank" rel="noreferrer">
+            <a href="#" target="_blank" rel="noreferrer" style={{ color: 'var(--secondary-color)', textDecoration: 'none'}}>
               🔗 LinkedIn
             </a>
           </li>
           <li>
-            <a href="https://m.me/yourusername" target="_blank" rel="noreferrer">
+            <a href="#" target="_blank" rel="noreferrer" style={{ color: 'var(--secondary-color)', textDecoration: 'none'}}>
               💬 Messenger
             </a>
           </li>
