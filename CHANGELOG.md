@@ -2,6 +2,26 @@
 
 This file tracks the changes and fixes applied to the project.
 
+## December Major Update - Project Overhaul and Modernization
+
+### Major Changes & New Features
+*   **Complete Game Section Refactor:**
+    *   Restructured all mini-games (Breakout, Color Guess, Math Challenge, Minesweeper, Papers, Please, Pong, Tetris) into their own dedicated folders.
+    *   Each game now has its own `index.html`, `script.js`, and `style.css`, improving modularity and maintainability.
+    *   Removed the old, monolithic game files.
+*   **New Category Pages:**
+    *   Introduced `CategoriesPage.jsx` to display different project categories.
+    *   Added `CategoryProjectsPage.jsx` to showcase projects within a specific category.
+*   **Dependency and Build Environment:**
+    *   Added a Nix development environment configuration (`.idx/dev.nix`) for consistent and reproducible builds.
+
+### Improvements & Fixes
+*   **Streamlined Development Startup:**
+    *   Modernized the `start-dev.bat` script for Windows users, making it faster and more reliable by simplifying the dependency installation process.
+*   **Code Cleanup:**
+    *   Removed the obsolete `InDevelopmentPage.jsx`.
+    *   Deleted the old `README-old.md` file.
+
 ## [Current Date] - Troubleshooting and Bug Fixes
 
 Today, we addressed a critical issue that was preventing the development server from starting. Here's a summary of the steps taken to resolve the problem:

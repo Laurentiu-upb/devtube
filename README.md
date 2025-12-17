@@ -1,51 +1,49 @@
-# 🚧 DevTube – Personal Portfolio Hub
+# 🚀 DevTube – Personal Portfolio Hub
 
-Welcome to **DevTube**, a YouTube-inspired personal portfolio web app designed to showcase projects, social presence, games, and more.
+Welcome to **DevTube**, a YouTube-inspired personal portfolio web app designed to showcase my projects, skills, and even a collection of classic web games I've built.
 
 ---
 
-## ✅ Implemented Features
+## ✨ Implemented Features
 
-### 🔵 General Structure
-- Sidebar with navigation (compact/full view)
-- Responsive YouTube-like `ProfilePage`
-- `SocialMediaPage` with vertical interactive cards (copy handle, status, last activity)
-- `ContactPage` with:
-  - Form validation for email/message (required), PDF only file upload
-  - Simulated submission (logs to console)
-  - Personal info + quick DM links (WhatsApp, Instagram, Messenger)
-- `WebGames` page with:
-  - Snake game: animated food, score, difficulty scaling
-  - WASD, touch support, overlays for Game Over + Restart
-- `WebApps` placeholder page for future mini tools
-- `CVPage` displaying CV content with download button
+### 🔵 Core App Structure
+-   **Responsive Design:** A familiar, YouTube-like interface that works seamlessly on desktop and mobile.
+-   **Navigation:** A collapsible sidebar for easy navigation between sections.
+-   **Profile Page:** A central hub showcasing my skills, experience, and projects.
+-   **Social Media Hub:** Interactive cards for my social media profiles, allowing for quick access and handle copying.
+-   **Contact Page:** A fully functional contact form with validation and direct messaging links.
 
-### 🟡 Project Showcasing
-- `ProjectPage` with searchable video cards
-- Dynamic project pages for "DevTube," "SmartLauncher," and "SnakeWeb"
-- `ProjectModal` for detailed project descriptions
-- Centralized `projects.js` for easy updates
+### 🎮 Web Games Arcade
+The `WebGames` section has been completely overhauled and now features a collection of classic games, each built with its own modular HTML, CSS, and JavaScript.
+-   **Breakout:** The classic brick-breaking game.
+-   **Color Guess:** Test your RGB color knowledge.
+-   **Math Challenge:** Solve quick-fire math problems.
+-   **Minesweeper:** The strategic mine-finding puzzle.
+-   **Papers, Please:** A simplified tribute to the original game.
+-   **Pong:** The original arcade classic.
+-   **Tetris:** The timeless tile-matching puzzle.
 
-### 🔴 Code & Structure
-- Built with **React** and **React Router**
-- Component-based architecture (`Navbar`, `Sidebar`, `VideoCard`)
-- Clean, organized file structure
+### 📂 Project Showcase
+-   **Categorized Projects:** Projects are now organized into categories for easier browsing.
+-   **Dynamic Project Pages:** Detailed pages for each major project.
+-   **Search Functionality:** Easily find projects using the search bar.
+-   **Centralized Data:** Project information is managed from a single `projects.js` file for easy updates.
+
+### 💻 Code & Development
+-   **Modern Tech Stack:** Built with **React** and **React Router**.
+-   **Component-Based Architecture:** A clean and maintainable codebase with reusable components.
+-   **Reproducible Builds:** Includes a **Nix development environment** (`.idx/dev.nix`) to ensure a consistent setup for anyone who wants to run the project.
+-   **Simplified Startup:** A modernized `start-dev.bat` script for Windows users to quickly install dependencies and launch the server.
 
 ---
 
 ## 📝 License
 
-[MIT](LICENSE) — free to modify and use in your own portfolio.
+This project is licensed under the [MIT](LICENSE) license — feel free to use and modify it for your own purposes.
 
 ---
 
 ## 👏 Credits
 
-Inspired by:
-- **YouTube** UI
-- Dev portfolios with personality
-- Real project navigation
-
----
-
-Built with passion by [Laurentiu](https://github.com/Laurentiu-upb) ❤️
+-   **Inspiration:** The UI is heavily inspired by YouTube's clean and intuitive design.
+-   **Creator:** Built with passion by [Laurentiu](https://github.com/Laurentiu-upb) ❤️
